@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "oRWdWExBMwQyE7S5wJpmXGC/DRJpSgmq8WDcJH+0V7uhIFVJ86zJn4ftSITDLnoE/HdqsbmI+xFSNw/tHqGypw==",
+  "success": true,
+  "projectFilePath": "D:\\___techademy___\\phase3\\StockMarketCharting\\Microservice1\\Microservice3.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512"
+  ],
+  "logs": []
+}
