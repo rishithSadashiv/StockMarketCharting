@@ -16,7 +16,13 @@ namespace Microservice3.Domain.Repositories
         {
             context = ctx;
         }
-        
+
+        public bool AddSector(Sector sector)
+        {
+            context.Sector.Add(sector);
+            int RowsAffected = context.SaveChanges();
+            return RowsAffected > 0;
+        }
 
         public IEnumerable<Sector> getSectors()
         {

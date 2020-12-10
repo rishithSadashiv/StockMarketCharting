@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microservice3.Entities;
 
 namespace Microservice3.Domain.Services
 {
@@ -19,6 +20,13 @@ namespace Microservice3.Domain.Services
             this.mapper = mapper;
 
         }
+
+        public bool AddSector(SectorDto sector)
+        {
+            var Obj = mapper.Map<Sector>(sector);
+            return repository.AddSector(Obj);
+        }
+
         public IEnumerable<SectorDto> getSectors()
         {
             var sectors = repository.getSectors();

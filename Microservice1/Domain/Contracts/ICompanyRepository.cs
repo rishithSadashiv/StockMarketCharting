@@ -10,5 +10,11 @@ namespace Microservice3.Domain.Contracts
     {
         IEnumerable<Company> GetCompaniesInSector(string sector);
         int getSectorPrice(string sector);
+
+        bool AddCompany(Company company);
+
+        bool UpdateCompany(Company company);
+
+        Company GetCompany(int Id);
     }
 }

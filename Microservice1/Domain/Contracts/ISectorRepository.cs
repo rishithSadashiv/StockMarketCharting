@@ -9,6 +9,8 @@ namespace Microservice3.Domain.Contracts
     public interface ISectorRepository
     {
         IEnumerable<Sector> getSectors(); //for drop-down list
+
+        bool AddSector(Sector sector);
         
     }
 }
