@@ -8,12 +8,12 @@ namespace Microservice5.Domain.Contracts
 {
     public interface IStockExchangeRepository
     {
-        public IList<StockExchange> GetStockExchanges();
+        public IEnumerable<StockExchange> GetStockExchanges();
 
         public bool AddStockExchange(StockExchange stockExchange);
 
         public bool AddCompany(Company company);
 
-        public IList<Company> GetCompaniesInStockExchange(string StockExchangeName);
+        public IEnumerable<Company> GetCompaniesInStockExchange(string StockExchangeName);
     }
 }

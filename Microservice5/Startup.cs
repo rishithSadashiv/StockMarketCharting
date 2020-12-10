@@ -4,6 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microservice5.DataContext;
+using Microservice5.Domain.Contracts;
+using Microservice5.Domain.Repository;
+using Microservice5.Domain.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -31,7 +34,8 @@ namespace Microservice5
             services.AddControllers();
             var connection = Configuration.GetConnectionString("constr");
             services.AddDbContext<SeDBContext>(options => options.UseSqlServer(connection));
-
+            services.AddScoped<IStockExchangeRepository, StockExchangeRepository>();
+            services.AddScoped<IStockExchangeService, StockExchangeService>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddSwaggerGen(options => options.SwaggerDoc("v1", new OpenApiInfo()));
             services.AddCors();
