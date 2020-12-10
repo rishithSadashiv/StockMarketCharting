@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "FwLav3G4VTjedYcDuPcsaPOwF/xXDaR65Y2FJSHI7sug+YucHlyM+txFKQ8Iw/rH9+EfU5luLzYC/W7GRt7o9Q==",
+  "dgSpecHash": "wPEV/64NWI2shnQiz6KKNi++irOjhv4oBTLa49KZEcOn9jyclr1cFMfziPdIER+YikgIRqtAoQRHPllxR3DLZA==",
   "success": true,
   "projectFilePath": "D:\\___techademy___\\phase3\\StockMarketCharting\\Microservice1\\Microservice3.csproj",
   "expectedPackageFiles": [
@@ -114,9 +114,7 @@
     "C:\\Users\\Admin\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512"
+    "C:\\Users\\Admin\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
   "logs": []
 }
