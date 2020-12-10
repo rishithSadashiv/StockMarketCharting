@@ -83,25 +83,31 @@ namespace Microservice3.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [ProducesResponseType(200)]
+        [ProducesResponseType(201)]
         [Route("updatecompany")]
         public IActionResult UpdateCompany(CompanyDto obj)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+            
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
 
-            if (obj == null)
-                return BadRequest("Product is required");
+                if (obj == null)
+                    return BadRequest("Product is required");
 
-            var prod = companyService.GetCompany(obj.CompanyID);
+                var prod = companyService.GetCompany(obj.CompanyID);
 
             if (prod == null)
-                return NotFound();
-
-            var result = companyService.UpdateCompany(obj);
-            if (result)
-                return Ok();
-            else
-                return BadRequest("Update failed");
+            {
+                companyService.AddCompany(obj);
+                return StatusCode(201);
+            }
+                var result = companyService.UpdateCompany(obj);
+                if (result)
+                    return Ok();
+                else
+                    return BadRequest("Update failed");
+            
+            
         }
 
 

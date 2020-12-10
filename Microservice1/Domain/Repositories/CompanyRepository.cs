@@ -66,7 +66,12 @@ namespace Microservice3.Domain.Repositories
             {
                 return AddCompany(company);
             }
-            context.Company.Update(company);
+            Obj.CompanyCode = company.CompanyCode;
+            Obj.CompanyName = company.CompanyName;
+            Obj.Sector = company.Sector;
+            Obj.Turnover = company.Turnover;
+
+            //context.Company.Update(company);
             int RowsAffected = context.SaveChanges();
             return RowsAffected > 0;
         }
