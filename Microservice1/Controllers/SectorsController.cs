@@ -55,7 +55,7 @@ namespace Microservice3.Controllers
 
             var result = sectorService.AddSector(sector);
             if (!result)
-                return BadRequest("Error saving products");
+                return BadRequest("Error saving Sector");
 
             //return CreatedAtRoute("GetProductById", new { id = obj.ID });
             return StatusCode(201);

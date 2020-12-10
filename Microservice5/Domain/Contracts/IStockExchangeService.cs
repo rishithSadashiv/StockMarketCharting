@@ -6,7 +6,7 @@ using Microservice5.Dtos;
 
 namespace Microservice5.Domain.Contracts
 {
-    interface IStockExchangeService
+    public interface IStockExchangeService
     {
         public IEnumerable<StockExchangeDto> GetStockExchanges();
 
