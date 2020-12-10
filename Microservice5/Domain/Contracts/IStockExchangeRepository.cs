@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microservice5.Entities
+using Microservice5.Entities;
 
 namespace Microservice5.Domain.Contracts
 {
