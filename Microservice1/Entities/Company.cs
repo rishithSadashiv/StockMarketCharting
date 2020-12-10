@@ -10,7 +10,7 @@ namespace Microservice3.Entities
     {
         public int CompanyID { get; set; }
         [StringLength(30)]
-        public int CompanyName { get; set; }
+        public string CompanyName { get; set; }
         [StringLength(10)]
         public string CompanyCode { get; set; }
         [StringLength(20)]

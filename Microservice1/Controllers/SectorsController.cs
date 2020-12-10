@@ -30,7 +30,7 @@ namespace Microservice3.Controllers
             return Ok(data);
         }
         [HttpGet]
-        [Route("getCompaniesInSector/{sector}")]
+        [Route("{sector}/companies")] //standard way of defining the request
         public IActionResult GetCompaniesInSector(string sector)
         {
             var data = companyService.GetCompaniesInSector(sector);
@@ -105,10 +105,11 @@ namespace Microservice3.Controllers
         }
 
 
-        [HttpGet("{id}", Name = "GetCompanyById")]
+        [HttpGet]
+        [Route("GetCompanyById/{id}")]
         [ProducesResponseType(404)]
         [ProducesResponseType(200, Type = typeof(CompanyDto))]
-        public IActionResult GetProduct(int id)
+        public IActionResult GetCompany(int id)
         {
             var Obj = companyService.GetCompany(id);
             if (Obj == null)

@@ -11,7 +11,7 @@ namespace Microservice3.Dtos
         public int CompanyID { get; set; }
         [StringLength(30)]
         [Required(ErrorMessage = "Company Name is mandatory")]
-        public int CompanyName { get; set; }
+        public string CompanyName { get; set; }
         [StringLength(10)]
         [Required]
         public string CompanyCode { get; set; }

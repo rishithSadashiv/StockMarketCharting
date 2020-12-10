@@ -40,6 +40,7 @@ namespace Microservice1
             services.AddScoped<ICompanyService, CompanyService>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddSwaggerGen(options => options.SwaggerDoc("v1", new OpenApiInfo()));
+            services.AddCors();
                 
         }
 
@@ -52,6 +53,8 @@ namespace Microservice1
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors(settings => settings.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
             app.UseRouting();
 

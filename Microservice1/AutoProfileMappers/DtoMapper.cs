@@ -12,8 +12,8 @@ namespace Microservice3.AutoProfileMappers
     {
         public DtoMapper()
         {
-            CreateMap<Company, CompanyDto>();
-            CreateMap<Sector, SectorDto>();
+            CreateMap<Company, CompanyDto>().ReverseMap();
+            CreateMap<Sector, SectorDto>().ReverseMap();
         }
     }
 }
