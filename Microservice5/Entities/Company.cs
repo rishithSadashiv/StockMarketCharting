@@ -9,18 +9,16 @@ namespace Microservice5.Entities
 {
     public class Company
     {
-        [Key]
+        
         public int Id { get; set; }
         [StringLength(10)]
-        [Column(TypeName = "varchar")]
         [Required]
         public string CompanyCode { get; set; }
 
         [Required]
         public string CompanyName { get; set; }
 
-        [ForeignKey("SName")]
         public string StockExchangeName { get; set; }
-        public StockExchange stockExchange { get; set; }
+        
     }
 }

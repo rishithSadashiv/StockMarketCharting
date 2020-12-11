@@ -20,18 +20,12 @@ namespace Microservice5.Domain.Repository
 
         public bool AddCompany(Company company)
         {
-            try
-            {
-                StockExchange stockExchange = context.StockExchange.Single(s => s.StockExchangeName == company.StockExchangeName);
-                company.stockExchange.Id = stockExchange.Id;
+            
                 context.Company.Add(company);
-                int RowsAffected = context.SaveChanges();
-                return RowsAffected > 0;
-            }
-            catch
-            {
-                throw new StockExchangeException("Stock exchange does not exist");
-            }
+                int RowsAdded = context.SaveChanges();
+                return RowsAdded > 0;
+
+            
         }
 
         public bool AddStockExchange(StockExchange stockExchange)
@@ -43,11 +37,14 @@ namespace Microservice5.Domain.Repository
 
         public IEnumerable<Company> GetCompaniesInStockExchange(string StockExchangeName)
         {
-            StockExchange stockExchange = context.StockExchange
-                                            .Include(se => se.companies)
-                                            .Single(se => se.StockExchangeName == StockExchangeName);
+            var query = from obj in context.Company
+                        orderby obj.CompanyName
+                        where obj.StockExchangeName == StockExchangeName
+                        select obj;
+            return query.ToList();
 
-            return stockExchange.companies;
+
+            
         }
 
         public IEnumerable<StockExchange> GetStockExchanges()

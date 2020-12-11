@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Microservice3.Migrations
 {
     [DbContext(typeof(SectorDBContext))]
-    [Migration("20201209040643_sector")]
-    partial class sector
+    [Migration("20201211102514_final")]
+    partial class final
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,9 +31,9 @@ namespace Microservice3.Migrations
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)");
 
-                    b.Property<int>("CompanyName")
+                    b.Property<string>("CompanyName")
                         .HasMaxLength(30)
-                        .HasColumnType("int");
+                        .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("Sector")
                         .HasMaxLength(20)

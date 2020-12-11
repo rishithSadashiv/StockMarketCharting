@@ -61,9 +61,9 @@ namespace Microservice5.Controllers
 
         [HttpGet]
         [Route("{stockExchangeName}/companies")]
-        public IActionResult GetCompaniesInStockExchange(string stname)
+        public IActionResult GetCompaniesInStockExchange(string stockExchangeName)
         {
-            return Ok(service.GetCompaniesInStockExchange(stname));
+            return Ok(service.GetCompaniesInStockExchange(stockExchangeName));
         }
 
     }
