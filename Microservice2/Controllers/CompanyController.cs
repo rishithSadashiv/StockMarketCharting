@@ -34,35 +34,35 @@ namespace Microservice2.Controllers
         }
 
         [HttpGet]
-        [Route("{company}/deactivateCompany")]
+        [Route("{Id}/deactivateCompany")]
         [ProducesResponseType(404)]
         [ProducesResponseType(200, Type = typeof(CompanyDto))]
-        public IActionResult DeactivateCompany(string company)
+        public IActionResult DeactivateCompany(int Id)
         {
-            if (company == null)
+            if (Id == 0)
             {
-                return BadRequest("company name is null");
+                return BadRequest("company id is 0");
             }
-            var result = companyService.DeactivateCompany(company);
+            var result = companyService.DeactivateCompany(Id);
             if (!result)
             {
                 return BadRequest("Some error occured");
             }
             else
             {
-                return Ok("Company deactivated");
+                return Ok("Company activated/deactivated");
             }
         }
 
-        [HttpDelete("{company}")]
-        public IActionResult DeleteCompany(string company)
+        [HttpDelete("{Id}")]
+        public IActionResult DeleteCompany(int Id)
         {
-            if (company == null)
+            if (Id == 0)
             {
-                return BadRequest("company name is null");
+                return BadRequest("company id is 0");
             }
 
-            var result = companyService.DeleteCompany(company);
+            var result = companyService.DeleteCompany(Id);
             if (!result)
             {
                 return BadRequest("Some error occured");
@@ -75,7 +75,7 @@ namespace Microservice2.Controllers
 
         [HttpGet]
         [ProducesResponseType(200, Type = typeof(CompanyDto[]))]
-        public IActionResult GetProducts()
+        public IActionResult GetAllCompanies()
         {
             var Data = companyService.GetAllCompanies();
             return Ok(Data);
@@ -91,10 +91,10 @@ namespace Microservice2.Controllers
         }
 
 
-        [HttpGet("{company}")]
-        public IActionResult GetCompany(string company)
+        [HttpGet("{Id}")]
+        public IActionResult GetCompany(int Id)
         {
-            var Obj = companyService.GetCompany(company);
+            var Obj = companyService.GetCompany(Id);
             if (Obj == null)
                 return NotFound();
 
@@ -113,10 +113,10 @@ namespace Microservice2.Controllers
             if (obj == null)
                 return BadRequest("Product is required");
 
-            var prod = companyService.GetCompany(obj.CompanyName);
+            //var prod = companyService.GetCompany(obj.CompanyId);
 
-            if (prod == null)
-                return NotFound();
+            //if (prod == null)
+              //  return NotFound();
 
             var result = companyService.UpdateCompnany(obj);
             if (result)

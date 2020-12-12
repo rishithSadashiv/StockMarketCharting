@@ -8,10 +8,10 @@ namespace Microservice2.Domain.Contracts
 {
     public interface ICompanyRepository
     {
-        public bool DeactivateCompany(string Company);
+        public bool DeactivateCompany(int Id);
         public bool AddCompany(Company company);
-        public bool DeleteCompany(string Company);
-        public Company GetCompany(string Company);
+        public bool DeleteCompany(int Id);
+        public Company GetCompany(int Id);
         public IEnumerable<Company> GetAllCompanies();
         public bool UpdateCompnany(Company company);
 

@@ -10,40 +10,40 @@ namespace Microservice2.Domain.Repositories
 {
     public class CompanyRepository : ICompanyRepository
     {
-        readonly CompanyDbContext context;
+        readonly CompanyDbContext context1;
         public CompanyRepository(CompanyDbContext ctx)
         {
-            context = ctx;
+            context1 = ctx;
         }
 
 
         public bool AddCompany(Company company)
         {
-            
-            context.Company.Add(company);
-            int RowsAdded = context.SaveChanges();
+
+            context1.Company.Add(company);
+            int RowsAdded = context1.SaveChanges();
             return RowsAdded > 0;
         }
 
-        public bool DeactivateCompany(string Company)
+        public bool DeactivateCompany(int Id)
         {
-            var Obj = GetCompany(Company);
-            Obj.Active = false;
-            int RowsAffected = context.SaveChanges();
+            var Obj = GetCompany(Id);
+            Obj.Active = !Obj.Active;
+            int RowsAffected = context1.SaveChanges();
             return RowsAffected > 0;
         }
 
-        public bool DeleteCompany(string Company)
+        public bool DeleteCompany(int Id)
         {
-            var Obj = GetCompany(Company);
-            context.Company.Remove(Obj);
-            int RowsDeleted = context.SaveChanges();
+            var Obj = GetCompany(Id);
+            context1.Company.Remove(Obj);
+            int RowsDeleted = context1.SaveChanges();
             return RowsDeleted > 0;
         }
 
         public IEnumerable<Company> GetAllCompanies()
         {
-            var query = from obj in context.Company
+            var query = from obj in context1.Company
                         orderby obj.CompanyName
                         select obj;
             return query.ToList();
@@ -51,20 +51,20 @@ namespace Microservice2.Domain.Repositories
 
         public IEnumerable<Company> GetAllCompaniesLike(string Name)
         {
-            var companies1 = context.Company.Where(x => x.CompanyName.Contains(Name)).ToList();
-            var companies2 = context.Company.Where(x => x.CompanyCode.Contains(Name)).ToList();
+            var companies1 = context1.Company.Where(x => x.CompanyName.Contains(Name)).ToList();
+            var companies2 = context1.Company.Where(x => x.CompanyCode.Contains(Name)).ToList();
             return companies1.Concat(companies2).ToList();
         }
 
-        public Company GetCompany(string Company)
+        public Company GetCompany(int Id)
         {
-            return context.Company.Find(Company); ;
+            return context1.Company.Find(Id); ;
         }
 
         public bool UpdateCompnany(Company company)
         {
-            context.Company.Update(company);
-            int RowsAffected = context.SaveChanges();
+            context1.Company.Update(company);
+            int RowsAffected = context1.SaveChanges();
             return RowsAffected > 0;
         }
     }

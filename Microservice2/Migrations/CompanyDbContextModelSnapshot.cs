@@ -21,8 +21,10 @@ namespace Microservice2.Migrations
 
             modelBuilder.Entity("Microservice2.Entities.Company", b =>
                 {
-                    b.Property<string>("ID")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("CompanyID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
 
                     b.Property<bool>("Active")
                         .HasColumnType("bit");
@@ -52,14 +54,14 @@ namespace Microservice2.Migrations
                     b.Property<int>("Turnover")
                         .HasColumnType("int");
 
-                    b.HasKey("ID");
+                    b.HasKey("CompanyID");
 
                     b.ToTable("Company");
                 });
 
             modelBuilder.Entity("Microservice2.Entities.Ipo", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("IpoId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
@@ -84,14 +86,14 @@ namespace Microservice2.Migrations
                     b.Property<int>("TotalNumberOfShares")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("IpoId");
 
                     b.ToTable("Ipo");
                 });
 
             modelBuilder.Entity("Microservice2.Entities.StockPrice", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("StockPriceId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
@@ -110,7 +112,7 @@ namespace Microservice2.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
-                    b.HasKey("Id");
+                    b.HasKey("StockPriceId");
 
                     b.ToTable("StockPrice");
                 });

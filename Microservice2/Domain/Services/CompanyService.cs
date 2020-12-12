@@ -24,14 +24,14 @@ namespace Microservice2.Domain.Services
             return repository.AddCompany(Obj);
         }
 
-        public bool DeactivateCompany(string Company)
+        public bool DeactivateCompany(int Id)
         {
-            return repository.DeactivateCompany(Company);
+            return repository.DeactivateCompany(Id);
         }
 
-        public bool DeleteCompany(string Company)
+        public bool DeleteCompany(int Id)
         {
-            return repository.DeleteCompany(Company);
+            return repository.DeleteCompany(Id);
         }
 
         public IEnumerable<CompanyDto> GetAllCompanies()
@@ -46,9 +46,9 @@ namespace Microservice2.Domain.Services
             return mapper.Map<IEnumerable<CompanyDto>>(companies);
         }
 
-        public CompanyDto GetCompany(string Company)
+        public CompanyDto GetCompany(int Id)
         {
-            var Obj = repository.GetCompany(Company);
+            var Obj = repository.GetCompany(Id);
             var Dto = mapper.Map<CompanyDto>(Obj);
             return Dto;
         }

@@ -48,7 +48,7 @@ namespace Microservice2.Controllers
             }
             else
             {
-                return Ok("Company deleted");
+                return Ok("Stock price deleted");
             }
         }
 
@@ -69,7 +69,8 @@ namespace Microservice2.Controllers
 
 
         [HttpGet]
-        [Route("{name}/{fromDate}/{toDate}/stockPrices")]
+        //[Route("{name}/{fromDate}/{toDate}/stockPrices")]
+        [Route("stockPrices")]
         [ProducesResponseType(200, Type = typeof(IpoDto[]))]
         public IActionResult GetAllStockPricesOfCompanyBetweenDates( string name, DateTime fromDate, DateTime toDate)
         {
@@ -77,13 +78,13 @@ namespace Microservice2.Controllers
             {
                 return BadRequest("inputs required");
             }
-
             var Data = stockPriceService.GetAllStockPricesOfCompanyBetweenDates(name, fromDate, toDate);
             return Ok(Data);
         }
 
         [HttpGet]
-        [Route("{fromDate}/{toDate}/allStockPrices")]
+        //[Route("{fromDate}/{toDate}/allStockPrices")]
+        [Route("allStockPrices")]
         [ProducesResponseType(200, Type = typeof(IpoDto[]))]
         public IActionResult GetAllStockPricesOfAllCompaniesBetweenDates(DateTime fromDate, DateTime toDate)
         {

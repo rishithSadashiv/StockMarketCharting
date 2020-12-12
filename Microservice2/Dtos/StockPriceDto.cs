@@ -8,7 +8,7 @@ namespace Microservice2.Dtos
 {
     public class StockPriceDto
     {
-        public int Id { get; set; }
+        public int StockPriceId { get; set; }
         [StringLength(30)]
         [Required(ErrorMessage = "Company Name is mandatory")]
         public string CompanyName { get; set; }

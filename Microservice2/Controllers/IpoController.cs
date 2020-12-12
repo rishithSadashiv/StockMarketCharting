@@ -44,7 +44,7 @@ namespace Microservice2.Controllers
             }
             else
             {
-                return Ok("Company deleted");
+                return Ok("IPO deleted");
             }
         }
 

@@ -11,7 +11,8 @@ namespace Microservice2.Migrations
                 name: "Company",
                 columns: table => new
                 {
-                    ID = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    CompanyID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     CompanyName = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: true),
                     Turnover = table.Column<int>(type: "int", nullable: false),
                     CompanyCode = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: true),
@@ -23,14 +24,14 @@ namespace Microservice2.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Company", x => x.ID);
+                    table.PrimaryKey("PK_Company", x => x.CompanyID);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Ipo",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    IpoId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CompanyName = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: true),
                     StockExchange = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: true),
@@ -41,14 +42,14 @@ namespace Microservice2.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Ipo", x => x.Id);
+                    table.PrimaryKey("PK_Ipo", x => x.IpoId);
                 });
 
             migrationBuilder.CreateTable(
                 name: "StockPrice",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    StockPriceId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CompanyName = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: true),
                     StockExchange = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: true),
@@ -57,7 +58,7 @@ namespace Microservice2.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_StockPrice", x => x.Id);
+                    table.PrimaryKey("PK_StockPrice", x => x.StockPriceId);
                 });
         }
 
