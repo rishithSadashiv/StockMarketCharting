@@ -13,8 +13,8 @@ namespace Microservice2.DataContext
         {
 
         }
-        DbSet<Company> Company { get; set; }
-        DbSet<Ipo> Ipo { get; set; }
-        DbSet<StockPrice> StockPrice { get; set; }
+        public DbSet<Company> Company { get; set; }
+        public DbSet<Ipo> Ipo { get; set; }
+        public DbSet<StockPrice> StockPrice { get; set; }
     }
 }

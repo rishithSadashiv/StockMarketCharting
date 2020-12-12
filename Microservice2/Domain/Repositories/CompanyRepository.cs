@@ -19,37 +19,53 @@ namespace Microservice2.Domain.Repositories
 
         public bool AddCompany(Company company)
         {
-            throw new NotImplementedException();
+            
+            context.Company.Add(company);
+            int RowsAdded = context.SaveChanges();
+            return RowsAdded > 0;
         }
 
         public bool DeactivateCompany(string Company)
         {
-            throw new NotImplementedException();
+            var Obj = GetCompany(Company);
+            Obj.Active = false;
+            int RowsAffected = context.SaveChanges();
+            return RowsAffected > 0;
         }
 
         public bool DeleteCompany(string Company)
         {
-            throw new NotImplementedException();
+            var Obj = GetCompany(Company);
+            context.Company.Remove(Obj);
+            int RowsDeleted = context.SaveChanges();
+            return RowsDeleted > 0;
         }
 
         public IEnumerable<Company> GetAllCompanies()
         {
-            throw new NotImplementedException();
+            var query = from obj in context.Company
+                        orderby obj.CompanyName
+                        select obj;
+            return query.ToList();
         }
 
         public IEnumerable<Company> GetAllCompaniesLike(string Name)
         {
-            throw new NotImplementedException();
+            var companies1 = context.Company.Where(x => x.CompanyName.Contains(Name)).ToList();
+            var companies2 = context.Company.Where(x => x.CompanyCode.Contains(Name)).ToList();
+            return companies1.Concat(companies2).ToList();
         }
 
         public Company GetCompany(string Company)
         {
-            throw new NotImplementedException();
+            return context.Company.Find(Company); ;
         }
 
         public bool UpdateCompnany(Company company)
         {
-            throw new NotImplementedException();
+            context.Company.Update(company);
+            int RowsAffected = context.SaveChanges();
+            return RowsAffected > 0;
         }
     }
 }
