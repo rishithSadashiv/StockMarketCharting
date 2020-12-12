@@ -18,27 +18,44 @@ namespace Microservice2.Domain.Repositories
         }
         public bool AddStockPrice(StockPrice stockPrice)
         {
-            throw new NotImplementedException();
+            context.StockPrice.Add(stockPrice);
+            int RowsAdded = context.SaveChanges();
+            return RowsAdded > 0;
         }
 
         public bool DeleteStockPrice(int Id)
         {
-            throw new NotImplementedException();
+            var Obj = context.StockPrice.Find(Id);
+            context.StockPrice.Remove(Obj);
+            int RowsDeleted = context.SaveChanges();
+            return RowsDeleted > 0;
         }
 
         public IEnumerable<StockPrice> GetAllStockPricesOfCompany(string Company)
         {
-            throw new NotImplementedException();
+            var StockPrices = context.StockPrice.Where(x => x.CompanyName.Equals(Company)).ToList();
+            return StockPrices;
         }
 
         public IEnumerable<StockPrice> GetAllStockPricesOfCompanyBetweenDates(string Company, DateTime FromDate, DateTime ToDate)
         {
-            throw new NotImplementedException();
+            var StockPrices = context.StockPrice.Where(x => x.CompanyName.Equals(Company) && x.DateOfPrice >= FromDate && x.DateOfPrice <= ToDate);
+            return StockPrices;
         }
+
+
+        public IEnumerable<StockPrice> GetAllStockPricesOfAllCompaniesBetweenDates(DateTime FromDate, DateTime ToDate)
+        {
+            var StockPrices = context.StockPrice.Where(x => x.DateOfPrice >= FromDate && x.DateOfPrice <= ToDate);
+            return StockPrices;
+        }
+
 
         public bool UpdateStockPrice(StockPrice stockPrice)
         {
-            throw new NotImplementedException();
+            context.StockPrice.Update(stockPrice);
+            int RowsAffected = context.SaveChanges();
+            return RowsAffected > 0;
         }
     }
 }

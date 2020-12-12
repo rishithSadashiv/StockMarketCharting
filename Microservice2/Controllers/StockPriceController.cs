@@ -82,6 +82,19 @@ namespace Microservice2.Controllers
             return Ok(Data);
         }
 
+        [HttpGet]
+        [Route("{fromDate}/{toDate}/allStockPrices")]
+        [ProducesResponseType(200, Type = typeof(IpoDto[]))]
+        public IActionResult GetAllStockPricesOfAllCompaniesBetweenDates(DateTime fromDate, DateTime toDate)
+        {
+            if (fromDate == null || toDate == null)
+            {
+                return BadRequest("inputs required");
+            }
+
+            var Data = stockPriceService.GetAllStockPricesOfAllCompaniesBetweenDates(fromDate, toDate);
+            return Ok(Data);
+        }
 
 
     }

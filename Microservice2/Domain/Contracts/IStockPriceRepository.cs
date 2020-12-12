@@ -13,5 +13,6 @@ namespace Microservice2.Domain.Contracts
         public bool UpdateStockPrice(StockPrice stockPrice);
         public bool AddStockPrice(StockPrice stockPrice);
         public bool DeleteStockPrice(int Id);
+        public IEnumerable<StockPrice> GetAllStockPricesOfAllCompaniesBetweenDates(DateTime FromDate, DateTime ToDate);
     }
 }

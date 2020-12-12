@@ -30,6 +30,12 @@ namespace Microservice2.Domain.Services
             return repository.DeleteStockPrice(Id);
         }
 
+        public IEnumerable<StockPriceDto> GetAllStockPricesOfAllCompaniesBetweenDates(DateTime FromDate, DateTime ToDate)
+        {
+            var Obj = repository.GetAllStockPricesOfAllCompaniesBetweenDates(FromDate, ToDate);
+            return mapper.Map<IEnumerable<StockPriceDto>>(Obj);
+        }
+
         public IEnumerable<StockPriceDto> GetAllStockPricesOfCompany(string Company)
         {
             var Obj = repository.GetAllStockPricesOfCompany(Company);

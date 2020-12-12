@@ -17,27 +17,38 @@ namespace Microservice2.Domain.Repositories
         }
         public bool AddIpo(Ipo ipo)
         {
-            throw new NotImplementedException();
+            context.Ipo.Add(ipo);
+            int RowsAdded = context.SaveChanges();
+            return RowsAdded > 0;
         }
 
         public bool DeleteIpo(int Id)
         {
-            throw new NotImplementedException();
+            var Obj = context.Ipo.Find(Id);
+            context.Ipo.Remove(Obj);
+            int RowsDeleted = context.SaveChanges();
+            return RowsDeleted > 0;
         }
 
         public IEnumerable<Ipo> GetAllIpos()
         {
-            throw new NotImplementedException();
+            var query = from obj in context.Ipo
+                        orderby obj.CompanyName
+                        select obj;
+            return query.ToList();
         }
 
         public IEnumerable<Ipo> GetIposOfCompany(string Company)
         {
-            throw new NotImplementedException();
+            var Ipos = context.Ipo.Where(x => x.CompanyName.Equals(Company)).ToList();
+            return Ipos;
         }
 
         public bool UpdateIpo(Ipo ipo)
         {
-            throw new NotImplementedException();
+            context.Ipo.Update(ipo);
+            int RowsAffected = context.SaveChanges();
+            return RowsAffected > 0;
         }
     }
 }
