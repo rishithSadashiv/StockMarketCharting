@@ -7,6 +7,6 @@ namespace Microservice4.Domain.Contracts
 {
     public interface IUserRepository
     {
-        public bool 
+        
     }
 }
