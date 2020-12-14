@@ -167,3 +167,5 @@ D:\___techademy___\phase3\StockMarketCharting\StockMarketChartingTest\obj\Debug\
 D:\___techademy___\phase3\StockMarketCharting\StockMarketChartingTest\obj\Debug\netcoreapp3.1\StockMarketChartingTest.dll
 D:\___techademy___\phase3\StockMarketCharting\StockMarketChartingTest\obj\Debug\netcoreapp3.1\StockMarketChartingTest.pdb
 D:\___techademy___\phase3\StockMarketCharting\StockMarketChartingTest\obj\Debug\netcoreapp3.1\StockMarketChartingTest.genruntimeconfig.cache
+D:\___techademy___\phase3\StockMarketCharting\StockMarketChartingTest\bin\Debug\netcoreapp3.1\RabbitMQ.Client.dll
+D:\___techademy___\phase3\StockMarketCharting\StockMarketChartingTest\bin\Debug\netcoreapp3.1\System.Threading.Channels.dll

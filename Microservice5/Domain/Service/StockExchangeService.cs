@@ -6,6 +6,7 @@ using Microservice5.Domain.Contracts;
 using Microservice5.Dtos;
 using AutoMapper;
 using Microservice5.Entities;
+using Microservice3.Dtos;
 
 namespace Microservice5.Domain.Service
 {
@@ -40,6 +41,11 @@ namespace Microservice5.Domain.Service
         {
             var Obj = repository.GetStockExchanges();
             return mapper.Map<IEnumerable<StockExchangeDto>>(Obj);
+        }
+
+        public bool UpdateCompanyDetailsFromMS2(Company2Dto dto)
+        {
+            return repository.UpdateCompanyDetailsFromMS2(dto);
         }
     }
 }

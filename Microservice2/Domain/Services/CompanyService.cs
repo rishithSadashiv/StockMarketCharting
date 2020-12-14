@@ -2,9 +2,12 @@
 using Microservice2.Domain.Contracts;
 using Microservice2.Dtos;
 using Microservice2.Entities;
+using Newtonsoft.Json;
+using RabbitMQ.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Microservice2.Domain.Services
@@ -56,7 +59,27 @@ namespace Microservice2.Domain.Services
         public bool UpdateCompnany(CompanyDto company)
         {
             var Obj = mapper.Map<Company>(company);
-            return repository.UpdateCompnany(Obj);
+            var result = repository.UpdateCompnany(Obj);
+
+            //rabbitmq
+            var json = JsonConvert.SerializeObject(company);
+            var bytes = Encoding.UTF8.GetBytes(json);
+
+            var factory = new ConnectionFactory() { HostName="localhost",   UserName = "guest", Password = "guest"};
+            using(var connection = factory.CreateConnection())
+            using (var channel = connection.CreateModel())
+            {
+                channel.QueueDeclare("CompanyCatalogMessages", true, false, false, null);
+                channel.BasicPublish("", "CompanyCatalogMessages", null, bytes);
+            }
+            using (var connection1 = factory.CreateConnection())
+            using (var channel1 = connection1.CreateModel())
+            {
+                channel1.QueueDeclare("CompanyCatalogMessagesForMS5", true, false, false, null);
+                channel1.BasicPublish("", "CompanyCatalogMessagesForMS5", null, bytes);
+            }
+
+            return result;
         }
     }
 }

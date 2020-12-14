@@ -33,6 +33,7 @@ namespace Microservice1
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddHostedService<CompanyCatalogQueueReader>(serivces => new CompanyCatalogQueueReader(services.BuildServiceProvider().GetRequiredService<ICompanyService>()));
             var connection = Configuration.GetConnectionString("constr");
             services.AddDbContext<SectorDBContext>(options => options.UseSqlServer(connection));
             services.AddScoped<ISectorRepository, SectorRepository>();

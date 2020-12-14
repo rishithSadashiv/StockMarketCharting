@@ -46,13 +46,13 @@ namespace Microservice3.Controllers
             if (obj == null)
                 return BadRequest("Product is required");
 
-            var prod = companyService.GetCompany(obj.CompanyID);
+            //var prod = companyService.GetCompany(obj.CompanyID);
 
-            if (prod == null)
-            {
-                companyService.AddCompany(obj);
-                return StatusCode(201);
-            }
+            //if (prod == null)
+            //{
+            //    companyService.AddCompany(obj);
+            //    return StatusCode(201);
+            //}
             var result = companyService.UpdateCompany(obj);
             if (result)
                 return Ok();
@@ -81,6 +81,8 @@ namespace Microservice3.Controllers
 
         [HttpGet]
         [Route("{sector}/sectorprice")]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(200, Type = typeof(int))]
         public IActionResult getSectorPrice(string sector)
         {
             int data = companyService.getSectorPrice(sector);
@@ -89,6 +91,8 @@ namespace Microservice3.Controllers
 
         [HttpGet]
         [Route("{sector}/companies")] //standard way of defining the request
+        [ProducesResponseType(404)]
+        [ProducesResponseType(200, Type = typeof(CompanyDto))]
         public IActionResult GetCompaniesInSector(string sector)
         {
             var data = companyService.GetCompaniesInSector(sector);

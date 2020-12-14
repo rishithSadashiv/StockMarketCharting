@@ -49,5 +49,12 @@ namespace Microservice3.Domain.Services
             var Obj = mapper.Map<Company>(company);
             return repository.UpdateCompany(Obj);
         }
+
+
+
+        public bool UpdateCompanyDetailsFromMS2(Company2Dto dto)
+        {
+            return repository.UpdateCompanyDetailsFromMS2(dto);
+        }
     }
 }

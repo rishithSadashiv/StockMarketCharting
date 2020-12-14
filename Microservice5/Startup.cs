@@ -8,6 +8,7 @@ using Microservice5.DataContext;
 using Microservice5.Domain.Contracts;
 using Microservice5.Domain.Repository;
 using Microservice5.Domain.Service;
+using Microservice5.Domain.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -33,6 +34,7 @@ namespace Microservice5
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddHostedService<CompanyCatalogQueueReader>(serivces => new CompanyCatalogQueueReader(services.BuildServiceProvider().GetRequiredService<IStockExchangeService>()));
             var connection = Configuration.GetConnectionString("constr");
             services.AddDbContext<SeDBContext>(options => options.UseSqlServer(connection));
             services.AddScoped<IStockExchangeRepository, StockExchangeRepository>();

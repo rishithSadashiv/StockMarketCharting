@@ -37,6 +37,7 @@ namespace Microservice5.Controllers
 
         [HttpGet]
         [Route("{stockExchangeName}/companies")]
+        [ProducesResponseType(200)]
         public IActionResult GetCompaniesInStockExchange(string stockExchangeName)
         {
             return Ok(service.GetCompaniesInStockExchange(stockExchangeName));

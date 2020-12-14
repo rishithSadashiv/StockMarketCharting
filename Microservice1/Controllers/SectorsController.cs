@@ -23,6 +23,7 @@ namespace Microservice3.Controllers
         }
 
         [HttpGet]
+        [ProducesResponseType(200, Type = typeof(SectorDto))]
         public IActionResult GetSectors()
         {
             var data = sectorService.getSectors();

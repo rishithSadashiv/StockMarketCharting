@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using SectorApiClient;
 
 namespace Microservice2.Controllers
 {
@@ -23,7 +24,7 @@ namespace Microservice2.Controllers
         [ProducesResponseType(404)]
         [ProducesResponseType(201)]
         [HttpPost]
-        public IActionResult AddCompany(CompanyDto Company)
+        public async Task<IActionResult> AddCompany(Dtos.CompanyDto Company)
         {
             if (ModelState.IsValid == false)
                 return BadRequest(ModelState);
@@ -32,6 +33,16 @@ namespace Microservice2.Controllers
             if (!result)
                 return BadRequest("Error saving products");
 
+            //var client1 = new SectorApiClient.SectorApiClient("https://localhost:57532"); //tried it, not working, call it from UI itself.
+            //SectorApiClient.CompanyDto comp1 = new SectorApiClient.CompanyDto()
+            //{
+            //    CompanyCode = Company.CompanyCode,
+            //    CompanyName = Company.CompanyName,
+            //    Sector = Company.Sector,
+            //    Turnover = Company.Turnover
+            //};
+            //await client1.CompanyAsync(comp1) ;
+
             //return CreatedAtRoute("GetProductById", new { id = obj.ID });
             return StatusCode(201);
         }
@@ -39,7 +50,7 @@ namespace Microservice2.Controllers
         [HttpGet]
         [Route("{Id}/deactivateCompany")]
         [ProducesResponseType(404)]
-        [ProducesResponseType(200, Type = typeof(CompanyDto))]
+        [ProducesResponseType(200, Type = typeof(Dtos.CompanyDto))]
         public IActionResult DeactivateCompany(int Id)
         {
             if (Id == 0)
@@ -81,7 +92,7 @@ namespace Microservice2.Controllers
 
 
         [HttpGet]
-        [ProducesResponseType(200, Type = typeof(CompanyDto[]))]
+        [ProducesResponseType(200, Type = typeof(Dtos.CompanyDto[]))]
         public IActionResult GetAllCompanies()
         {
             var Data = companyService.GetAllCompanies();
@@ -92,7 +103,7 @@ namespace Microservice2.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [Route("{name}/companiesLike")]
-        [ProducesResponseType(200, Type = typeof(CompanyDto[]))]
+        [ProducesResponseType(200, Type = typeof(Dtos.CompanyDto[]))]
         public IActionResult GetAllCompaniesLike(string name)
         {
             var Data = companyService.GetAllCompaniesLike(name);
@@ -116,7 +127,7 @@ namespace Microservice2.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [ProducesResponseType(200)]
-        public IActionResult UpdateCompany(CompanyDto obj)
+        public IActionResult UpdateCompany(Dtos.CompanyDto obj)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);

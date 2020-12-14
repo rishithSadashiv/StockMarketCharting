@@ -1,4 +1,5 @@
-﻿using Microservice3.Entities;
+﻿using Microservice3.Dtos;
+using Microservice3.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,5 +17,7 @@ namespace Microservice3.Domain.Contracts
         bool UpdateCompany(Company company);
 
         Company GetCompany(int Id);
+
+        bool UpdateCompanyDetailsFromMS2(Company2Dto dto);
     }
 }

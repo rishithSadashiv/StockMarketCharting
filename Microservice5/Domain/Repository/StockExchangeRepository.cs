@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microservice3.Dtos;
 using Microservice5.DataContext;
 using Microservice5.Domain.Contracts;
 using Microservice5.Entities;
@@ -53,6 +54,21 @@ namespace Microservice5.Domain.Repository
                         orderby obj.StockExchangeName
                         select obj;
             return query.ToList();
+        }
+
+        public bool UpdateCompanyDetailsFromMS2(Company2Dto dto)
+        {
+            var companies = from obj in context.Company
+                            where obj.Id == dto.CompanyId
+                            select obj;
+            foreach (var company in companies)
+            {
+                company.CompanyCode = dto.CompanyCode;
+                company.CompanyName = dto.CompanyName;
+                
+            }
+            var RowsAffected = context.SaveChanges();
+            return RowsAffected > 0;
         }
     }
 }

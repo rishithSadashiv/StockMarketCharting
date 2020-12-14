@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microservice3.Dtos;
 using Microservice5.Entities;
 
 namespace Microservice5.Domain.Contracts
@@ -15,5 +16,7 @@ namespace Microservice5.Domain.Contracts
         public bool AddCompany(Company company);
 
         public IEnumerable<Company> GetCompaniesInStockExchange(string StockExchangeName);
+
+        bool UpdateCompanyDetailsFromMS2(Company2Dto dto);
     }
 }

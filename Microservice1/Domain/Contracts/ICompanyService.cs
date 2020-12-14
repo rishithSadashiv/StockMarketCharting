@@ -17,5 +17,7 @@ namespace Microservice3.Domain.Contracts
         bool UpdateCompany(CompanyDto company);
 
         CompanyDto GetCompany(int Id);
+
+        bool UpdateCompanyDetailsFromMS2(Company2Dto dto);
     }
 }

@@ -19,6 +19,6 @@ namespace Microservice5.Dtos
         [Required(ErrorMessage = "Stock Exchange name is mandatory")]
         public string StockExchangeName { get; set; }
         // to be extracted from StockExchange table using StockExchangeName
-        public int stockExchangeId { get; set; }
+        //public int stockExchangeId { get; set; }
     }
 }

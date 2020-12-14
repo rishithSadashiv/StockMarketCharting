@@ -1,5 +1,6 @@
 ﻿using Microservice3.DataContext;
 using Microservice3.Domain.Contracts;
+using Microservice3.Dtos;
 using Microservice3.Entities;
 using System;
 using System.Collections.Generic;
@@ -73,6 +74,21 @@ namespace Microservice3.Domain.Repositories
 
             //context.Company.Update(company);
             int RowsAffected = context.SaveChanges();
+            return RowsAffected > 0;
+        }
+
+        public bool UpdateCompanyDetailsFromMS2(Company2Dto dto)
+        {
+            var companies = from obj in context.Company
+                            where obj.CompanyID == dto.CompanyId
+                            select obj;
+            foreach(var company in companies)
+            {
+                company.CompanyCode = dto.CompanyCode;
+                company.CompanyName = dto.CompanyName;
+                company.Turnover = dto.Turnover;
+            }
+            var RowsAffected = context.SaveChanges();
             return RowsAffected > 0;
         }
     }
