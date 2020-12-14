@@ -1,4 +1,5 @@
 using AutoMapper;
+using Consul;
 using Microservice01.DataContext;
 using Microservice01.Domain.Contracts;
 using Microservice01.Domain.Repositories;
@@ -43,17 +44,35 @@ namespace Microservice01
                 Version = "v1"
             }));
             services.AddCors();
+            services.AddSingleton<IConsulClient, ConsulClient>( options => new ConsulClient(config => {
+                config.Address = new Uri(Configuration["ConsulConfig:Host"]);
+            })) ;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
             app.UseSwagger();
             app.UseSwaggerUI(options => options.SwaggerEndpoint("/swagger/v1/swagger.json", "Products Api"));
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            var client = app.ApplicationServices.GetRequiredService<IConsulClient>();
+            var registration = new AgentServiceRegistration()
+            {
+                Address = "localhost",
+                Port = 49346,
+                Name = Configuration["ConsulConfig:ServiceName"],
+                ID = Configuration["ConsulConfig:ServiceId"]
+            };
+
+            var applifetime = app.ApplicationServices.GetRequiredService<IHostApplicationLifetime>();
+            applifetime.ApplicationStarted.Register(()=> client.Agent.ServiceRegister(registration).ConfigureAwait(true));
+
+            applifetime.ApplicationStopped.Register(() => client.Agent.ServiceDeregister(registration.ID).ConfigureAwait(true));
 
             app.UseCors(settings => settings.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 

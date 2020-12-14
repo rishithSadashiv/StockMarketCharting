@@ -68,3 +68,4 @@ D:\___techademy___\phase3\StockMarketCharting\Microservice01\obj\Debug\netcoreap
 D:\___techademy___\phase3\StockMarketCharting\Microservice01\obj\Debug\netcoreapp3.1\Microservice01.dll
 D:\___techademy___\phase3\StockMarketCharting\Microservice01\obj\Debug\netcoreapp3.1\Microservice01.pdb
 D:\___techademy___\phase3\StockMarketCharting\Microservice01\obj\Debug\netcoreapp3.1\Microservice01.genruntimeconfig.cache
+D:\___techademy___\phase3\StockMarketCharting\Microservice01\bin\Debug\netcoreapp3.1\Consul.dll

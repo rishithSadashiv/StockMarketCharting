@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Consul;
 using Microservice5.DataContext;
 using Microservice5.Domain.Contracts;
 using Microservice5.Domain.Repository;
@@ -43,6 +44,9 @@ namespace Microservice5
                 Version = "v1"
             }));
             services.AddCors();
+            services.AddSingleton<IConsulClient, ConsulClient>(options => new ConsulClient(config => {
+                config.Address = new Uri(Configuration["ConsulConfig:Host"]);
+            }));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,6 +56,20 @@ namespace Microservice5
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            var client = app.ApplicationServices.GetRequiredService<IConsulClient>();
+            var registration = new AgentServiceRegistration()
+            {
+                Address = "localhost",
+                Port = 54806,
+                Name = Configuration["ConsulConfig:ServiceName"],
+                ID = Configuration["ConsulConfig:ServiceId"]
+            };
+
+            var applifetime = app.ApplicationServices.GetRequiredService<IHostApplicationLifetime>();
+            applifetime.ApplicationStarted.Register(() => client.Agent.ServiceRegister(registration).ConfigureAwait(true));
+
+            applifetime.ApplicationStopped.Register(() => client.Agent.ServiceDeregister(registration.ID).ConfigureAwait(true));
 
             app.UseCors(settings => settings.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 

@@ -48,6 +48,10 @@
               "target": "Package",
               "version": "[8.1.0, )"
             },
+            "Consul": {
+              "target": "Package",
+              "version": "[1.6.1.1, )"
+            },
             "Microsoft.AspNetCore.Cors": {
               "target": "Package",
               "version": "[2.2.0, )"

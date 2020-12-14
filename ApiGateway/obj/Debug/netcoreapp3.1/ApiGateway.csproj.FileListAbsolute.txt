@@ -30,3 +30,7 @@ D:\___techademy___\phase3\StockMarketCharting\ApiGateway\obj\Debug\netcoreapp3.1
 D:\___techademy___\phase3\StockMarketCharting\ApiGateway\obj\Debug\netcoreapp3.1\ApiGateway.dll
 D:\___techademy___\phase3\StockMarketCharting\ApiGateway\obj\Debug\netcoreapp3.1\ApiGateway.pdb
 D:\___techademy___\phase3\StockMarketCharting\ApiGateway\obj\Debug\netcoreapp3.1\ApiGateway.genruntimeconfig.cache
+D:\___techademy___\phase3\StockMarketCharting\ApiGateway\bin\Debug\netcoreapp3.1\Consul.dll
+D:\___techademy___\phase3\StockMarketCharting\ApiGateway\bin\Debug\netcoreapp3.1\Ocelot.Provider.Consul.dll
+D:\___techademy___\phase3\StockMarketCharting\ApiGateway\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netstandard1.3\System.Net.Http.WinHttpHandler.dll
+D:\___techademy___\phase3\StockMarketCharting\ApiGateway\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard1.3\System.Net.Http.WinHttpHandler.dll
