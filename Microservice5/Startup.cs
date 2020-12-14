@@ -52,6 +52,8 @@ namespace Microservice5
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseSwagger();
+            app.UseSwaggerUI(options => options.SwaggerEndpoint("/swagger/v1/swagger.json", "Stock Exchange Api"));
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

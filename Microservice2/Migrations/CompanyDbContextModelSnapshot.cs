@@ -21,7 +21,7 @@ namespace Microservice2.Migrations
 
             modelBuilder.Entity("Microservice2.Entities.Company", b =>
                 {
-                    b.Property<int>("CompanyID")
+                    b.Property<int>("CompanyId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
@@ -54,7 +54,7 @@ namespace Microservice2.Migrations
                     b.Property<int>("Turnover")
                         .HasColumnType("int");
 
-                    b.HasKey("CompanyID");
+                    b.HasKey("CompanyId");
 
                     b.ToTable("Company");
                 });
@@ -97,6 +97,10 @@ namespace Microservice2.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
+
+                    b.Property<string>("CompanyCode")
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
 
                     b.Property<string>("CompanyName")
                         .HasMaxLength(30)

@@ -1,11 +1,11 @@
 ﻿using Microservice01.Domain.Contracts;
-using Microservice01.Dtos;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CompanyApiExcel;
 
 namespace Microservice01.Controllers
 {
@@ -19,9 +19,15 @@ namespace Microservice01.Controllers
             service = excelService;
         }
 
+        //api/excel
         [HttpPost]
-        public IActionResult ExcelToDB([FromBody] StockPriceDto Dto)
+        public async Task<IActionResult> ExcelToDB([FromBody] StockPriceDto[] Dto)
         {
+            var client = new CompanyApiClient("http://localhost:56959");
+            foreach(var stockprice in Dto)
+            {
+                await client.StockPriceAsync(stockprice);
+            }
             return Ok();
         }
     }

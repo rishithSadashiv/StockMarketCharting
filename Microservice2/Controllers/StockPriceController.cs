@@ -23,7 +23,9 @@ namespace Microservice2.Controllers
 
 
         [HttpPost]
-        public IActionResult AddCompany(StockPriceDto Obj)
+        [ProducesResponseType(400)]
+        [ProducesResponseType(201)]
+        public IActionResult AddStockPrice(StockPriceDto Obj)
         {
             if (ModelState.IsValid == false)
                 return BadRequest(ModelState);
@@ -38,6 +40,9 @@ namespace Microservice2.Controllers
 
 
         [HttpDelete("{id}")]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(400)]
         public IActionResult DeleteStockPrice(int id)
         {
 

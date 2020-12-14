@@ -54,7 +54,7 @@ namespace Microservice01
         {
 
             app.UseSwagger();
-            app.UseSwaggerUI(options => options.SwaggerEndpoint("/swagger/v1/swagger.json", "Products Api"));
+            app.UseSwaggerUI(options => options.SwaggerEndpoint("/swagger/v1/swagger.json", "Excel Api"));
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

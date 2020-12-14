@@ -20,6 +20,8 @@ namespace Microservice2.Controllers
         }
 
         [HttpPost]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(201)]
         public IActionResult AddIpo(IpoDto Ipo)
         {
             if (ModelState.IsValid == false)
@@ -35,6 +37,9 @@ namespace Microservice2.Controllers
 
 
         [HttpDelete("{ipo}")]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(400)]
         public IActionResult DeleteIpo(int ipo)
         {
             var result = ipoService.DeleteIpo(ipo);

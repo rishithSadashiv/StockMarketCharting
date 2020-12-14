@@ -19,6 +19,9 @@ namespace Microservice2.Controllers
             this.companyService = companyService;
         }
 
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(201)]
         [HttpPost]
         public IActionResult AddCompany(CompanyDto Company)
         {
@@ -54,6 +57,9 @@ namespace Microservice2.Controllers
             }
         }
 
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(200)]
         [HttpDelete("{Id}")]
         public IActionResult DeleteCompany(int Id)
         {
@@ -73,6 +79,7 @@ namespace Microservice2.Controllers
             }
         }
 
+
         [HttpGet]
         [ProducesResponseType(200, Type = typeof(CompanyDto[]))]
         public IActionResult GetAllCompanies()
@@ -82,6 +89,8 @@ namespace Microservice2.Controllers
         }
 
         [HttpGet]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
         [Route("{name}/companiesLike")]
         [ProducesResponseType(200, Type = typeof(CompanyDto[]))]
         public IActionResult GetAllCompaniesLike(string name)
@@ -90,7 +99,9 @@ namespace Microservice2.Controllers
             return Ok(Data);
         }
 
-
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(200)]
         [HttpGet("{Id}")]
         public IActionResult GetCompany(int Id)
         {

@@ -56,7 +56,7 @@ namespace Microservice1
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseSwagger();
-            app.UseSwaggerUI(options => options.SwaggerEndpoint("/swagger/v1/swagger.json", "Products Api"));
+            app.UseSwaggerUI(options => options.SwaggerEndpoint("/swagger/v1/swagger.json", "Sector Api"));
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
