@@ -14,8 +14,10 @@ namespace Microservice2.Entities
         public int StockPriceId { get; set; }
         [StringLength(30)]
         public string CompanyName { get; set; }
+        [StringLength(10)]
+        public string CompanyCode { get; set; }
         [StringLength(30)]
-        public string StockExchange{ get; set; }
+        public string StockExchange { get; set; }
         public int CurrentPrice { get; set; }
         public DateTime DateOfPrice { get; set; }
 

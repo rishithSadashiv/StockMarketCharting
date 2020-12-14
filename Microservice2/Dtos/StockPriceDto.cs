@@ -12,6 +12,9 @@ namespace Microservice2.Dtos
         [StringLength(30)]
         [Required(ErrorMessage = "Company Name is mandatory")]
         public string CompanyName { get; set; }
+        [StringLength(10)]
+        [Required(ErrorMessage = "Company Code is mandatory")]
+        public string CompanyCode { get; set; }
         [StringLength(30)]
         [Required(ErrorMessage = "Company stock exchange is mandatory")]
         public string StockExchange { get; set; }

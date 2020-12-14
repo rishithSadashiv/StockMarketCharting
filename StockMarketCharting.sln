@@ -9,7 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice5", "Microservi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice4", "Microservice4\Microservice4.csproj", "{10A252C4-A843-46B7-BA0F-F31504325FFB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservice2", "Microservice2\Microservice2.csproj", "{71AC6FE5-5F26-4D5A-997A-09981AB69D3C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice2", "Microservice2\Microservice2.csproj", "{71AC6FE5-5F26-4D5A-997A-09981AB69D3C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice01", "Microservice01\Microservice01.csproj", "{7D04D85B-81D1-4F09-B18E-305868CFE3DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockMarketChartingTest", "StockMarketChartingTest\StockMarketChartingTest.csproj", "{1932D70D-3A7C-4D18-B21E-25F32871C205}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{71AC6FE5-5F26-4D5A-997A-09981AB69D3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71AC6FE5-5F26-4D5A-997A-09981AB69D3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71AC6FE5-5F26-4D5A-997A-09981AB69D3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D04D85B-81D1-4F09-B18E-305868CFE3DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D04D85B-81D1-4F09-B18E-305868CFE3DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D04D85B-81D1-4F09-B18E-305868CFE3DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D04D85B-81D1-4F09-B18E-305868CFE3DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1932D70D-3A7C-4D18-B21E-25F32871C205}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1932D70D-3A7C-4D18-B21E-25F32871C205}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1932D70D-3A7C-4D18-B21E-25F32871C205}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1932D70D-3A7C-4D18-B21E-25F32871C205}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
