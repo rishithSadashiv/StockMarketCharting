@@ -1,4 +1,5 @@
 ﻿using Microservice01.Domain.Contracts;
+using Microservice01.Dtos;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -18,23 +19,10 @@ namespace Microservice01.Controllers
             service = excelService;
         }
 
-        [HttpGet("{Path}")]
-        public IActionResult ExcelToDB(string Path)
+        [HttpPost]
+        public IActionResult ExcelToDB([FromBody] StockPriceDto Dto)
         {
-            if(Path == null)
-            {
-                return BadRequest("Path cannot be empty");
-            }
-            var Result = service.ExcelToDB(Path);
-            if (Result)
-            {
-                return Ok("Excel data added to DB");
-            }
-            else
-            {
-                return BadRequest("There was some error,could not add data to DB");
-
-            }
+            return Ok();
         }
     }
 }

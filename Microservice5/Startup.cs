@@ -37,7 +37,11 @@ namespace Microservice5
             services.AddScoped<IStockExchangeRepository, StockExchangeRepository>();
             services.AddScoped<IStockExchangeService, StockExchangeService>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-            services.AddSwaggerGen(options => options.SwaggerDoc("v1", new OpenApiInfo()));
+            services.AddSwaggerGen(options => options.SwaggerDoc("v1", new OpenApiInfo()
+            {
+                Title = "StockExchange Api",
+                Version = "v1"
+            }));
             services.AddCors();
         }
 

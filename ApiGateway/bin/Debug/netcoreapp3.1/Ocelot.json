@@ -1,0 +1,71 @@
+{
+    "Routes": [
+        {
+            "RouteIsCaseSensitive": false,
+            "DownstreamScheme": "http",
+            "DownstreamPathTemplate": "/api/excel/{url}",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 49346
+                }
+            ],
+            "UpstreamHttpMethod": [ "POST" ],
+            "UpstreamPathTemplate": "/api/excelservice/{url}"
+        },
+        {
+            "DownstreamScheme": "http",
+            "DownstreamPathTemplate": "/api/{url}",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 56959
+                }
+            ],
+            "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+            "UpstreamPathTemplate": "/api/companyservice/{url}"
+        },
+        {
+            "DownstreamScheme": "http",
+            "DownstreamPathTemplate": "/api/{url}",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 57532
+                }
+            ],
+            "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+            "UpstreamPathTemplate": "/api/sectorservice/{url}"
+        },
+        {
+            "DownstreamScheme": "http",
+            "DownstreamPathTemplate": "/api/{url}",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 53492
+                }
+            ],
+            "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+            "UpstreamPathTemplate": "/api/userservice/{url}"
+        },
+        {
+            "DownstreamScheme": "http",
+            "DownstreamPathTemplate": "/api/{url}",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 54806
+                }
+            ],
+            "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+            "UpstreamPathTemplate": "/api/stockexchangeservice/{url}"
+        }
+         
+    ],
+    "GlobalConfiguration": {
+        "BaseUrl": "http://localhost:53595"
+
+    }
+
+}

@@ -33,7 +33,11 @@ namespace Microservice4
             services.AddDbContext<LoginDBContext>(options => options.UseSqlServer(connection));
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-            services.AddSwaggerGen(options => options.SwaggerDoc("v1", new OpenApiInfo()));
+            services.AddSwaggerGen(options => options.SwaggerDoc("v1", new OpenApiInfo()
+            {
+                Title = "User Api",
+                Version = "v1"
+            }));
             services.AddCors();
         }
 

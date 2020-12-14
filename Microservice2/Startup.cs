@@ -42,7 +42,11 @@ namespace Microservice2
             services.AddScoped<IStockPriceRepository, StockPriceRepository>();
             services.AddScoped<IStockPriceService, StockPriceService>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-            services.AddSwaggerGen(options => options.SwaggerDoc("v1", new OpenApiInfo()));
+            services.AddSwaggerGen(options => options.SwaggerDoc("v1", new OpenApiInfo()
+            {
+                Title = "Company Api",
+                Version = "v1"
+            }));
             services.AddCors();
         }
 
@@ -58,7 +62,7 @@ namespace Microservice2
 
             app.UseCors(settings => settings.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
-            app.UseHttpsRedirection();
+            
 
             app.UseRouting();
 

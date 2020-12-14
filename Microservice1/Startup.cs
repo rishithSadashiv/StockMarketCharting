@@ -39,7 +39,11 @@ namespace Microservice1
             services.AddScoped<ISectorService, SectorService>();
             services.AddScoped<ICompanyService, CompanyService>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-            services.AddSwaggerGen(options => options.SwaggerDoc("v1", new OpenApiInfo()));
+            services.AddSwaggerGen(options => options.SwaggerDoc("v1", new OpenApiInfo()
+            {
+                Title = "Sector Api",
+                Version = "v1"
+            }));
             services.AddCors();
                 
         }
