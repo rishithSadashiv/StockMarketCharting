@@ -69,3 +69,4 @@ D:\___techademy___\phase3\StockMarketCharting\Microservice4\obj\Debug\netcoreapp
 D:\___techademy___\phase3\StockMarketCharting\Microservice4\obj\Debug\netcoreapp3.1\Microservice4.pdb
 D:\___techademy___\phase3\StockMarketCharting\Microservice4\obj\Debug\netcoreapp3.1\Microservice4.genruntimeconfig.cache
 D:\___techademy___\phase3\StockMarketCharting\Microservice4\bin\Debug\netcoreapp3.1\Consul.dll
+D:\___techademy___\phase3\StockMarketCharting\Microservice4\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll

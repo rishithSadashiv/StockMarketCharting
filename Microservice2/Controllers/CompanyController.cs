@@ -43,7 +43,6 @@ namespace Microservice2.Controllers
             //};
             //await client1.CompanyAsync(comp1) ;
 
-            //return CreatedAtRoute("GetProductById", new { id = obj.ID });
             return StatusCode(201);
         }
 

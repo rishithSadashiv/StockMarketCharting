@@ -1,6 +1,9 @@
 using AutoMapper;
 using Consul;
 using Microservice4.DataContext;
+using Microservice4.Domain.Contracts;
+using Microservice4.Domain.Repositories;
+using Microservice4.Domain.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -32,7 +35,8 @@ namespace Microservice4
             services.AddControllers();
             var connection = Configuration.GetConnectionString("constr");
             services.AddDbContext<LoginDBContext>(options => options.UseSqlServer(connection));
-
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserService, UserService>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddSwaggerGen(options => options.SwaggerDoc("v1", new OpenApiInfo()
             {

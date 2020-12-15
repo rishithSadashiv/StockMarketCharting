@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "OpXTopeEB1kS+aMJ4sQIsmnYxsfKe5O0seYXjBFitWoMQaOrtK0FGoJ4KGb8h+GI04j7U/dlzPkomZnA2bhEgA==",
+  "dgSpecHash": "qKOl6LI0fKiaiFiipaFYxmmsytkR2VjxLtRqCkGwFgmq4NC1rlXRBYOSA/ct8VhVsHllgtAGL/0bV6uVzdtdgg==",
   "success": true,
   "projectFilePath": "D:\\___techademy___\\phase3\\StockMarketCharting\\StockMarketChartingTest\\StockMarketChartingTest.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,7 @@
     "C:\\Users\\Admin\\.nuget\\packages\\consul\\1.6.1.1\\consul.1.6.1.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.7\\microsoft.aspnet.webapi.client.5.2.7.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnet.webapi.core\\5.2.7\\microsoft.aspnet.webapi.core.5.2.7.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.10\\microsoft.aspnetcore.authentication.jwtbearer.3.1.10.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.cors\\2.2.0\\microsoft.aspnetcore.cors.2.2.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.http.extensions\\2.2.0\\microsoft.aspnetcore.http.extensions.2.2.0.nupkg.sha512",

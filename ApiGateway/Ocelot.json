@@ -6,27 +6,42 @@
             "DownstreamPathTemplate": "/api/{url}",
             "ServiceName": "ExcelService",
             "UpstreamHttpMethod": [ "POST" ],
-            "UpstreamPathTemplate": "/api/excelservice/{url}"
+            "UpstreamPathTemplate": "/api/excelservice/{url}",
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Rishi",
+                "AllowedScopes": []
+            },
+            "RouteClaimsRequirement": {
+                "UserType": "admin"
+            }
         },
         {
             "DownstreamScheme": "http",
             "DownstreamPathTemplate": "/api/{url}",
             "ServiceName": "CompanyService",
             "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
-            "UpstreamPathTemplate": "/api/companyservice/{url}"
+            "UpstreamPathTemplate": "/api/companyservice/{url}",
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Rishi",
+                "AllowedScopes": []
+            }
         },
         {
             "DownstreamScheme": "http",
             "DownstreamPathTemplate": "/api/{url}",
             "ServiceName": "SectorService",
             "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
-            "UpstreamPathTemplate": "/api/sectorservice/{url}"
+            "UpstreamPathTemplate": "/api/sectorservice/{url}",
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Rishi",
+                "AllowedScopes": []
+            }
         },
         {
             "DownstreamScheme": "http",
             "DownstreamPathTemplate": "/api/{url}",
             "ServiceName": "UserService",
-            "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+            "UpstreamHttpMethod": [ "GET", "POST", "PUT" ],
             "UpstreamPathTemplate": "/api/userservice/{url}"
         },
         {
@@ -34,7 +49,11 @@
             "DownstreamPathTemplate": "/api/{url}",
             "ServiceName": "StockExchangeService",
             "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
-            "UpstreamPathTemplate": "/api/stockexchangeservice/{url}"
+            "UpstreamPathTemplate": "/api/stockexchangeservice/{url}",
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Rishi",
+                "AllowedScopes": []
+            }
         }
          
     ],

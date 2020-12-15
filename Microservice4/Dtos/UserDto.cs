@@ -9,6 +9,9 @@ namespace Microservice4.Dtos
     public class UserDto
     {
         public int Id { get; set; }
+        [Required(ErrorMessage = "Username is mandatory")]
+        [StringLength(20)]
+        public string Username { get; set; }
         [Required(ErrorMessage = "Email is mandatory")]
         [StringLength(20)]
         public string Email { get; set; }

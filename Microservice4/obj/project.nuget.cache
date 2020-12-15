@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "D1QsLwMcI61G30lBHpVLDsvT/CBxAw1/NSgnh41NhPKtLrORMY6cJXkabtsL46VnvQmAjnL+v28rxyDEyKeF/g==",
+  "dgSpecHash": "BLDUITj817PlRZMmyRyiajjPTjCKLDh4MUwJ2Lhkh1bkiVvkBOEm83risSt4GWeghVMe71PP9RDtFfPVLjCc7A==",
   "success": true,
   "projectFilePath": "D:\\___techademy___\\phase3\\StockMarketCharting\\Microservice4\\Microservice4.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\Admin\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.0\\automapper.extensions.microsoft.dependencyinjection.8.1.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\consul\\1.6.1.1\\consul.1.6.1.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.10\\microsoft.aspnetcore.authentication.jwtbearer.3.1.10.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.cors\\2.2.0\\microsoft.aspnetcore.cors.2.2.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.http.extensions\\2.2.0\\microsoft.aspnetcore.http.extensions.2.2.0.nupkg.sha512",
