@@ -52,6 +52,7 @@ namespace Microservice4.Domain.Repositories
                 
                 if (Obj[0].Password == cr.Password)
                 {
+                    result.Id = Obj[0].Id;
                     result.UserType = Obj[0].UserType;
                     result.Jwt = GenerateToken(Obj[0].UserType, cr.Username);
                 }

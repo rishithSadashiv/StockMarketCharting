@@ -44,8 +44,10 @@ namespace Microservice5.Migrations
 
             modelBuilder.Entity("Microservice5.Entities.StockExchange", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
 
                     b.Property<string>("Brief")
                         .HasMaxLength(20)

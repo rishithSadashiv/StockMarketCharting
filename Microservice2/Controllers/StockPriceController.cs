@@ -61,7 +61,7 @@ namespace Microservice2.Controllers
         [HttpGet]
         [Route("{name}/company")]
         [ProducesResponseType(200, Type = typeof(IpoDto[]))]
-        public IActionResult GetIposOfCompany(string name)
+        public IActionResult GetStockPricesOfCompany(string name)
         {
             if (name == null)
             {

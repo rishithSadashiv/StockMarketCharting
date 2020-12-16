@@ -11,6 +11,7 @@ using Microservice2.DataContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Mvc;
+using Microservice2.Dtos;
 
 namespace StockMarketChartingTest
 {
@@ -36,6 +37,7 @@ namespace StockMarketChartingTest
             }));
             var service = new CompanyService(repository, ObjMapper);
             cs = new CompanyController(service);
+            
         }
 
         [Test]
@@ -45,5 +47,42 @@ namespace StockMarketChartingTest
             Assert.AreEqual(200, Result.StatusCode);
         }
 
+        [Test]
+        public void GetAllCompaniesTest_ForListOfCompanyDto()
+        {
+            var Result = cs.GetAllCompanies() as ObjectResult;
+            Assert.IsInstanceOf<IEnumerable<CompanyDto>>(Result.Value);
+        }
+        [Test]
+        public void DeactivateCompany_testForSuccessStatus()
+        {
+            var Result = cs.DeactivateCompany(1) as ObjectResult;
+            Assert.AreEqual(200, Result.StatusCode);
+        }
+
+        [Test]
+        public void DeleteCompany_TestForSuccessStatus()
+        {
+            var Result = cs.DeleteCompany(1002) as ObjectResult;
+            Assert.AreEqual(200, Result.StatusCode);
+        }
+        [Test]
+        public void GetCompaniesLike_Test()
+        {
+            var Result = cs.GetAllCompaniesLike("com") as ObjectResult;
+            Assert.AreEqual(200, Result.StatusCode);
+        }
+        [Test]
+        public void GetCompany_TestForSuccessCode()
+        {
+            var Result = cs.GetCompany(1) as ObjectResult;
+            Assert.AreEqual(200, Result.StatusCode);
+        }
+        [Test]
+        public void GetCompany_TestForValue()
+        {
+            var Result = cs.GetCompany(1) as ObjectResult;
+            Assert.IsInstanceOf<CompanyDto>(Result.Value);
+        }
     }
 }

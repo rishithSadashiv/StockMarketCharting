@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Microservice5.Migrations
 {
     [DbContext(typeof(SeDBContext))]
-    [Migration("20201211072721_withoutRelationship")]
-    partial class withoutRelationship
+    [Migration("20201215191112_intId")]
+    partial class intId
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -30,7 +30,7 @@ namespace Microservice5.Migrations
                     b.Property<string>("CompanyCode")
                         .IsRequired()
                         .HasMaxLength(10)
-                        .HasColumnType("varchar(10)");
+                        .HasColumnType("nvarchar(10)");
 
                     b.Property<string>("CompanyName")
                         .IsRequired()
@@ -46,8 +46,10 @@ namespace Microservice5.Migrations
 
             modelBuilder.Entity("Microservice5.Entities.StockExchange", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
 
                     b.Property<string>("Brief")
                         .HasMaxLength(20)

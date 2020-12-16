@@ -27,18 +27,30 @@ namespace Microservice2.Domain.Repositories
 
         public bool DeactivateCompany(int Id)
         {
-            var Obj = GetCompany(Id);
-            Obj.Active = !Obj.Active;
-            int RowsAffected = context1.SaveChanges();
-            return RowsAffected > 0;
+            try
+            {
+                var Obj = GetCompany(Id);
+                Obj.Active = !Obj.Active;
+                int RowsAffected = context1.SaveChanges();
+                return RowsAffected > 0;
+            }catch(NullReferenceException)
+            {
+                throw new Exception("Invalid ID");
+            }
         }
 
         public bool DeleteCompany(int Id)
         {
+            try { 
             var Obj = GetCompany(Id);
             context1.Company.Remove(Obj);
             int RowsDeleted = context1.SaveChanges();
             return RowsDeleted > 0;
+            }
+            catch (ArgumentNullException)
+            {
+                throw new Exception("Invalid ID");
+            }
         }
 
         public IEnumerable<Company> GetAllCompanies()

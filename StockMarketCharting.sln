@@ -13,9 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice2", "Microservi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservice01", "Microservice01\Microservice01.csproj", "{7D04D85B-81D1-4F09-B18E-305868CFE3DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockMarketChartingTest", "StockMarketChartingTest\StockMarketChartingTest.csproj", "{1932D70D-3A7C-4D18-B21E-25F32871C205}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockMarketChartingTest", "StockMarketChartingTest\StockMarketChartingTest.csproj", "{1932D70D-3A7C-4D18-B21E-25F32871C205}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGateway", "ApiGateway\ApiGateway.csproj", "{4D42E64C-5022-4BA2-9F3F-22375BFD684E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiGateway", "ApiGateway\ApiGateway.csproj", "{4D42E64C-5022-4BA2-9F3F-22375BFD684E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

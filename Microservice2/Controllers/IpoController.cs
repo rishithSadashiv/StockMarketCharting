@@ -42,14 +42,20 @@ namespace Microservice2.Controllers
         [ProducesResponseType(400)]
         public IActionResult DeleteIpo(int ipo)
         {
-            var result = ipoService.DeleteIpo(ipo);
-            if (!result)
+            try
             {
-                return BadRequest("Some error occured");
-            }
-            else
+                var result = ipoService.DeleteIpo(ipo);
+                if (!result)
+                {
+                    return BadRequest("Some error occured");
+                }
+                else
+                {
+                    return Ok("IPO deleted");
+                }
+            }catch(Exception e)
             {
-                return Ok("IPO deleted");
+                return BadRequest(e.Message);
             }
         }
 
@@ -82,19 +88,25 @@ namespace Microservice2.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [ProducesResponseType(200)]
-        public IActionResult UpdateCompany(IpoDto obj)
+        public IActionResult UpdateIpo(IpoDto obj)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+            try
+            {
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
 
-            if (obj == null)
-                return BadRequest("Product is required");
+                if (obj == null)
+                    return BadRequest("Product is required");
 
-            var result = ipoService.UpdateIpo(obj);
-            if (result)
-                return Ok();
-            else
-                return BadRequest("Update failed");
+                var result = ipoService.UpdateIpo(obj);
+                if (result)
+                    return Ok();
+                else
+                    return BadRequest("Update failed");
+            }catch(Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
     }

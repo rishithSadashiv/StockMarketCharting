@@ -1,6 +1,7 @@
 ﻿using Microservice2.DataContext;
 using Microservice2.Domain.Contracts;
 using Microservice2.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,10 +25,17 @@ namespace Microservice2.Domain.Repositories
 
         public bool DeleteIpo(int Id)
         {
-            var Obj = context.Ipo.Find(Id);
-            context.Ipo.Remove(Obj);
-            int RowsDeleted = context.SaveChanges();
-            return RowsDeleted > 0;
+            try
+            {
+                var Obj = context.Ipo.Find(Id);
+                context.Ipo.Remove(Obj);
+                int RowsDeleted = context.SaveChanges();
+                return RowsDeleted > 0;
+            }
+            catch (ArgumentNullException)
+            {
+                throw new Exception("Invalid ID");
+            }
         }
 
         public IEnumerable<Ipo> GetAllIpos()
@@ -46,9 +54,16 @@ namespace Microservice2.Domain.Repositories
 
         public bool UpdateIpo(Ipo ipo)
         {
-            context.Ipo.Update(ipo);
-            int RowsAffected = context.SaveChanges();
-            return RowsAffected > 0;
+            try
+            {
+                context.Ipo.Update(ipo);
+                int RowsAffected = context.SaveChanges();
+                return RowsAffected > 0;
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                throw new Exception("Invalid ID");
+            }
         }
     }
 }

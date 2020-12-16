@@ -8,8 +8,8 @@ namespace Microservice5.Entities
 {
     public class StockExchange
     {
-        
-        public string Id { get; set; }
+        [Key]
+        public int Id { get; set; }
         [StringLength(30)]
         [Required]
         public string StockExchangeName { get; set; }

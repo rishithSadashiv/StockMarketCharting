@@ -52,18 +52,25 @@ namespace Microservice2.Controllers
         [ProducesResponseType(200, Type = typeof(Dtos.CompanyDto))]
         public IActionResult DeactivateCompany(int Id)
         {
-            if (Id == 0)
+            try
             {
-                return BadRequest("company id is 0");
+                if (Id == 0)
+                {
+                    return BadRequest("company id is 0");
+                }
+                var result = companyService.DeactivateCompany(Id);
+                if (!result)
+                {
+                    return BadRequest("Some error occured");
+                }
+                else
+                {
+                    return Ok("Company activated/deactivated");
+                }
             }
-            var result = companyService.DeactivateCompany(Id);
-            if (!result)
+            catch (Exception e)
             {
-                return BadRequest("Some error occured");
-            }
-            else
-            {
-                return Ok("Company activated/deactivated");
+                return BadRequest(e.Message);
             }
         }
 
@@ -73,19 +80,25 @@ namespace Microservice2.Controllers
         [HttpDelete("{Id}")]
         public IActionResult DeleteCompany(int Id)
         {
-            if (Id == 0)
+            try
             {
-                return BadRequest("company id is 0");
-            }
+                if (Id == 0)
+                {
+                    return BadRequest("company id is 0");
+                }
 
-            var result = companyService.DeleteCompany(Id);
-            if (!result)
+                var result = companyService.DeleteCompany(Id);
+                if (!result)
+                {
+                    return BadRequest("Some error occured");
+                }
+                else
+                {
+                    return Ok("Company deleted");
+                }
+            }catch(Exception e)
             {
-                return BadRequest("Some error occured");
-            }
-            else
-            {
-                return Ok("Company deleted");
+                return BadRequest(e.Message);
             }
         }
 
@@ -115,11 +128,17 @@ namespace Microservice2.Controllers
         [HttpGet("{Id}")]
         public IActionResult GetCompany(int Id)
         {
-            var Obj = companyService.GetCompany(Id);
-            if (Obj == null)
-                return NotFound();
+            try
+            {
+                var Obj = companyService.GetCompany(Id);
+                if (Obj == null)
+                    return NotFound();
 
-            return Ok(Obj);
+                return Ok(Obj);
+            }catch(Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
         [HttpPut]
