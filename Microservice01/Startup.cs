@@ -64,7 +64,7 @@ namespace Microservice01
             var registration = new AgentServiceRegistration()
             {
                 Address = "localhost",
-                Port = 49346,
+                Port = 49347,
                 Name = Configuration["ConsulConfig:ServiceName"],
                 ID = Configuration["ConsulConfig:ServiceId"]
             };

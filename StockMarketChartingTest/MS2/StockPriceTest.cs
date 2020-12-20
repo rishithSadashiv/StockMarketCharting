@@ -1,7 +1,11 @@
-﻿using AutoMapper.Configuration;
+﻿using AutoMapper;
+using AutoMapper.Configuration;
+using Microservice2.AutoMapperProfiles;
 using Microservice2.Controllers;
 using Microservice2.Domain.Contracts;
+using Microservice2.Domain.Services;
 using Microservice2.Dtos;
+using Microservice2.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Moq;
@@ -59,6 +63,18 @@ namespace StockMarketChartingTest.MS2
             var controller = new StockPriceController(mockRepository.Object);
             var Result = controller.GetAllStockPricesOfAllCompaniesBetweenDates(new DateTime(), new DateTime()) as ObjectResult;
             Assert.AreEqual(200, Result.StatusCode);
+        }
+
+        [Test]
+        public void ServiceTest_AddStockPrice()
+        {
+            var mockMapper = new Mock<DtoMapper>();
+            var mockRepository = new Mock<IStockPriceRepository>();
+            mockRepository.Setup(x => x.AddStockPrice(It.IsAny<StockPrice>())).Returns(true);
+
+            var service = new StockPriceService(mockRepository.Object, (IMapper)mockMapper.Object);
+
+
         }
     }
 

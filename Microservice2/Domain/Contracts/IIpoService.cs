@@ -13,5 +13,7 @@ namespace Microservice2.Domain.Contracts
         public bool AddIpo(IpoDto ipo);
         public bool UpdateIpo(IpoDto ipo);
         public bool DeleteIpo(int Id);
+
+        public IpoDto GetIpo(int Id);
     }
 }

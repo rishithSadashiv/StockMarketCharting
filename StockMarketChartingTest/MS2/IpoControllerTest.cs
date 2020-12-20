@@ -30,7 +30,7 @@ namespace StockMarketChartingTest.MS2
         public void GetIposOfCompany_TestForOk()
         {
             var mockRepository = new Mock<IIpoService>();
-            mockRepository.Setup(x => x.GetIposOfCompany(string.Empty)).Returns(Enumerable.Empty<IpoDto>().AsQueryable());
+            mockRepository.Setup(x => x.GetIposOfCompany(string.Empty)).Returns(new List<IpoDto>());//Enumerable.Empty<IpoDto>().AsQueryable());
 
             var controller = new IpoController(mockRepository.Object);
             var Result = controller.GetIposOfCompany(string.Empty) as ObjectResult;

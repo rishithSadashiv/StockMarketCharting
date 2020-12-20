@@ -31,6 +31,18 @@ namespace Microservice5.Domain.Service
             return repository.AddStockExchange(Obj);
         }
 
+        public IEnumerable<CompanyDto> GetAllCompanies()
+        {
+            var Obj = repository.GetAllCompanies();
+            return mapper.Map<IEnumerable<CompanyDto>>(Obj);
+        }
+
+        public IEnumerable<CompanyDto> GetAllStockExchangesToWhichACompanyBelongs(string company)
+        {
+            var Obj = repository.GetAllStockExchangesToWhichACompanyBelongs(company);
+            return mapper.Map<IEnumerable<CompanyDto>>(Obj);
+        }
+
         public IEnumerable<CompanyDto> GetCompaniesInStockExchange(string StockExchangeName)
         {
             var Obj = repository.GetCompaniesInStockExchange(StockExchangeName);

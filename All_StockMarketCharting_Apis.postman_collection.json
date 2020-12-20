@@ -1,0 +1,1144 @@
+{
+	"info": {
+		"_postman_id": "13355caa-0e7b-4c56-96e4-b49b0df68d42",
+		"name": "All_StockMarketCharting_Apis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "AuthService",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"admin1\",\r\n    \"email\":\"rishusit7@gmail.com\",\r\n    \"password\":\"admin1\",\r\n    \"userType\":\"admin\",\r\n    \"phone\":\"1234567891\",\r\n    \"confirmed\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:53595/api/userservice/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "53595",
+							"path": [
+								"api",
+								"userservice",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:53595/api/userservice/auth/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "53595",
+							"path": [
+								"api",
+								"userservice",
+								"auth",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"username\":\"admin1\",\r\n    \"password\":\"admin1\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:53595/api/userservice/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "53595",
+							"path": [
+								"api",
+								"userservice",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EditUser",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 3,\r\n    \"username\": \"admin1\",\r\n    \"email\": \"admin@gmail.com\",\r\n    \"password\": \"admin1\",\r\n    \"userType\": \"admin\",\r\n    \"phone\": \"1234567891\",\r\n    \"confirmed\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:53595/api/userservice/auth/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "53595",
+							"path": [
+								"api",
+								"userservice",
+								"auth",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "UploadService",
+			"item": [
+				{
+					"name": "Upload Stockprices",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbjEiLCJqdGkiOiIwNzI4MDBjMS1kMGU2LTRhNTctYWNmYS03MmI4Njk0ODQyY2EiLCJpYXQiOiIxNS0xMi0yMDIwIDE2OjIyOjEyIiwiVXNlclR5cGUiOiJhZG1pbiIsImV4cCI6MTYwODA1MjkzMn0.QaTmKz2YlqqcbShblcwCqJtHiNYj-VC923KY_TTzQ0Q",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n    \"companyName\":\"company71\",\r\n    \"companyCode\":\"sg15\",\r\n    \"stockExchange\":\"tmk\",\r\n    \"currentPrice\":222,\r\n    \"dateOfPrice\":\"2016-06-03T10:52\"\r\n    },\r\n    {\r\n    \"companyName\":\"company72\",\r\n    \"companyCode\":\"sg16\",\r\n    \"stockExchange\":\"mse\",\r\n    \"currentPrice\":7700,\r\n    \"dateOfPrice\":\"2016-06-03T10:52\"\r\n}\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:53595/api/excelservice/excel",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "53595",
+							"path": [
+								"api",
+								"excelservice",
+								"excel"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "CompanyService",
+			"item": [
+				{
+					"name": "companyController",
+					"item": [
+						{
+							"name": "GetAllCompanies",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbjEiLCJqdGkiOiIwNzI4MDBjMS1kMGU2LTRhNTctYWNmYS03MmI4Njk0ODQyY2EiLCJpYXQiOiIxNS0xMi0yMDIwIDE2OjIyOjEyIiwiVXNlclR5cGUiOiJhZG1pbiIsImV4cCI6MTYwODA1MjkzMn0.QaTmKz2YlqqcbShblcwCqJtHiNYj-VC923KY_TTzQ0Q",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:53595/api/companyservice/company",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "53595",
+									"path": [
+										"api",
+										"companyservice",
+										"company"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AddCompany",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbjEiLCJqdGkiOiIwNzI4MDBjMS1kMGU2LTRhNTctYWNmYS03MmI4Njk0ODQyY2EiLCJpYXQiOiIxNS0xMi0yMDIwIDE2OjIyOjEyIiwiVXNlclR5cGUiOiJhZG1pbiIsImV4cCI6MTYwODA1MjkzMn0.QaTmKz2YlqqcbShblcwCqJtHiNYj-VC923KY_TTzQ0Q",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \r\n    \"companyName\":\"company73\",\r\n    \"turnover\":657,\r\n    \"companyCode\":\"sg100\",\r\n    \"ceo\":\"some guy\",\r\n    \"boardOfDirectors\":\"some other guys\",\r\n    \"sector\":\"thisOne\",\r\n    \"currentStockPrice\":71007,\r\n    \"active\":true\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:53595/api/companyservice/company",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "53595",
+									"path": [
+										"api",
+										"companyservice",
+										"company"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeactivateCompany",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbjEiLCJqdGkiOiIwNzI4MDBjMS1kMGU2LTRhNTctYWNmYS03MmI4Njk0ODQyY2EiLCJpYXQiOiIxNS0xMi0yMDIwIDE2OjIyOjEyIiwiVXNlclR5cGUiOiJhZG1pbiIsImV4cCI6MTYwODA1MjkzMn0.QaTmKz2YlqqcbShblcwCqJtHiNYj-VC923KY_TTzQ0Q",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:53595/api/companyservice/company/1005/deactivateCompany",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "53595",
+									"path": [
+										"api",
+										"companyservice",
+										"company",
+										"1005",
+										"deactivateCompany"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteCompany",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbjEiLCJqdGkiOiIwNzI4MDBjMS1kMGU2LTRhNTctYWNmYS03MmI4Njk0ODQyY2EiLCJpYXQiOiIxNS0xMi0yMDIwIDE2OjIyOjEyIiwiVXNlclR5cGUiOiJhZG1pbiIsImV4cCI6MTYwODA1MjkzMn0.QaTmKz2YlqqcbShblcwCqJtHiNYj-VC923KY_TTzQ0Q",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:53595/api/companyservice/company/1005",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "53595",
+									"path": [
+										"api",
+										"companyservice",
+										"company",
+										"1005"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetAllCompaniesLike",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbjEiLCJqdGkiOiIwNzI4MDBjMS1kMGU2LTRhNTctYWNmYS03MmI4Njk0ODQyY2EiLCJpYXQiOiIxNS0xMi0yMDIwIDE2OjIyOjEyIiwiVXNlclR5cGUiOiJhZG1pbiIsImV4cCI6MTYwODA1MjkzMn0.QaTmKz2YlqqcbShblcwCqJtHiNYj-VC923KY_TTzQ0Q",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:53595/api/companyservice/company/company/companiesLike",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "53595",
+									"path": [
+										"api",
+										"companyservice",
+										"company",
+										"company",
+										"companiesLike"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetCompany",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbjEiLCJqdGkiOiIwNzI4MDBjMS1kMGU2LTRhNTctYWNmYS03MmI4Njk0ODQyY2EiLCJpYXQiOiIxNS0xMi0yMDIwIDE2OjIyOjEyIiwiVXNlclR5cGUiOiJhZG1pbiIsImV4cCI6MTYwODA1MjkzMn0.QaTmKz2YlqqcbShblcwCqJtHiNYj-VC923KY_TTzQ0Q",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:53595/api/companyservice/company/1004",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "53595",
+									"path": [
+										"api",
+										"companyservice",
+										"company",
+										"1004"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateCompany",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbjEiLCJqdGkiOiIwNzI4MDBjMS1kMGU2LTRhNTctYWNmYS03MmI4Njk0ODQyY2EiLCJpYXQiOiIxNS0xMi0yMDIwIDE2OjIyOjEyIiwiVXNlclR5cGUiOiJhZG1pbiIsImV4cCI6MTYwODA1MjkzMn0.QaTmKz2YlqqcbShblcwCqJtHiNYj-VC923KY_TTzQ0Q",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n     \"companyId\": 1004,\r\n    \"companyName\": \"company112\",\r\n    \"turnover\": 658,\r\n    \"companyCode\": \"sg1001\",\r\n    \"ceo\": \"some guy\",\r\n    \"boardOfDirectors\": \"some other guys\",\r\n    \"sector\": \"thisOne\",\r\n    \"currentStockPrice\": 71007,\r\n    \"active\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:53595/api/companyservice/company",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "53595",
+									"path": [
+										"api",
+										"companyservice",
+										"company"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "IpoController",
+					"item": [
+						{
+							"name": "GetAllIpos",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbjEiLCJqdGkiOiJmNDU4OTE2MC0zODczLTQ3ZTgtYWFmMi0wMjM4ZTU5YmQyZWIiLCJpYXQiOiIxNS0xMi0yMDIwIDE3OjI5OjExIiwiVXNlclR5cGUiOiJhZG1pbiIsImV4cCI6MTYwODA1Njk1MX0.lG36lgxZwutL9kCa_eIq66fiSw2o_A2v3t2AM1YpvOo",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:53595/api/companyservice/ipo",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "53595",
+									"path": [
+										"api",
+										"companyservice",
+										"ipo"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AddIpo",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbjEiLCJqdGkiOiIwNzI4MDBjMS1kMGU2LTRhNTctYWNmYS03MmI4Njk0ODQyY2EiLCJpYXQiOiIxNS0xMi0yMDIwIDE2OjIyOjEyIiwiVXNlclR5cGUiOiJhZG1pbiIsImV4cCI6MTYwODA1MjkzMn0.QaTmKz2YlqqcbShblcwCqJtHiNYj-VC923KY_TTzQ0Q",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \r\n        \"companyName\": \"company11\",\r\n        \"stockExchange\": \"bse\",\r\n        \"pricePerShare\": 5001,\r\n        \"totalNumberOfShares\": 100000,\r\n        \"openDateTime\": \"2017-08-01T00:00:00\",\r\n        \"remarks\": \"some comment\"\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:53595/api/companyservice/ipo",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "53595",
+									"path": [
+										"api",
+										"companyservice",
+										"ipo"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetAllIposOfCompany",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbjEiLCJqdGkiOiIwNzI4MDBjMS1kMGU2LTRhNTctYWNmYS03MmI4Njk0ODQyY2EiLCJpYXQiOiIxNS0xMi0yMDIwIDE2OjIyOjEyIiwiVXNlclR5cGUiOiJhZG1pbiIsImV4cCI6MTYwODA1MjkzMn0.QaTmKz2YlqqcbShblcwCqJtHiNYj-VC923KY_TTzQ0Q",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:53595/api/companyservice/ipo/company11/company",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "53595",
+									"path": [
+										"api",
+										"companyservice",
+										"ipo",
+										"company11",
+										"company"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateIpo",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbjEiLCJqdGkiOiIwNzI4MDBjMS1kMGU2LTRhNTctYWNmYS03MmI4Njk0ODQyY2EiLCJpYXQiOiIxNS0xMi0yMDIwIDE2OjIyOjEyIiwiVXNlclR5cGUiOiJhZG1pbiIsImV4cCI6MTYwODA1MjkzMn0.QaTmKz2YlqqcbShblcwCqJtHiNYj-VC923KY_TTzQ0Q",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": " {\r\n     \"ipoId\": 3,\r\n     \"companyName\": \"company19\",\r\n        \"stockExchange\": \"bse\",\r\n        \"pricePerShare\": 5001,\r\n        \"totalNumberOfShares\": 100000,\r\n        \"openDateTime\": \"2017-08-01T00:00:00\",\r\n        \"remarks\": \"some comment2\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:53595/api/companyservice/ipo",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "53595",
+									"path": [
+										"api",
+										"companyservice",
+										"ipo"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteIpo",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbjEiLCJqdGkiOiJmNDU4OTE2MC0zODczLTQ3ZTgtYWFmMi0wMjM4ZTU5YmQyZWIiLCJpYXQiOiIxNS0xMi0yMDIwIDE3OjI5OjExIiwiVXNlclR5cGUiOiJhZG1pbiIsImV4cCI6MTYwODA1Njk1MX0.lG36lgxZwutL9kCa_eIq66fiSw2o_A2v3t2AM1YpvOo",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:53595/api/companyservice/ipo/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "53595",
+									"path": [
+										"api",
+										"companyservice",
+										"ipo",
+										"3"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "StockPriceController",
+					"item": [
+						{
+							"name": "AddStockPrice",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbjEiLCJqdGkiOiJmNDU4OTE2MC0zODczLTQ3ZTgtYWFmMi0wMjM4ZTU5YmQyZWIiLCJpYXQiOiIxNS0xMi0yMDIwIDE3OjI5OjExIiwiVXNlclR5cGUiOiJhZG1pbiIsImV4cCI6MTYwODA1Njk1MX0.lG36lgxZwutL9kCa_eIq66fiSw2o_A2v3t2AM1YpvOo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"companyName\":\"company131\",\r\n    \"stockExchange\":\"bse\",\r\n    \"companyCode\":\"sg15\",\r\n    \"currentPrice\":200,\r\n    \"dateOfPrice\":\"2016-06-03T10:52\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:53595/api/companyservice/stockprice",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "53595",
+									"path": [
+										"api",
+										"companyservice",
+										"stockprice"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteStockPrice",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbjEiLCJqdGkiOiJmNDU4OTE2MC0zODczLTQ3ZTgtYWFmMi0wMjM4ZTU5YmQyZWIiLCJpYXQiOiIxNS0xMi0yMDIwIDE3OjI5OjExIiwiVXNlclR5cGUiOiJhZG1pbiIsImV4cCI6MTYwODA1Njk1MX0.lG36lgxZwutL9kCa_eIq66fiSw2o_A2v3t2AM1YpvOo",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:53595/api/companyservice/stockprice/1009",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "53595",
+									"path": [
+										"api",
+										"companyservice",
+										"stockprice",
+										"1009"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetStockPricesOfCompany",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbjEiLCJqdGkiOiJmNDU4OTE2MC0zODczLTQ3ZTgtYWFmMi0wMjM4ZTU5YmQyZWIiLCJpYXQiOiIxNS0xMi0yMDIwIDE3OjI5OjExIiwiVXNlclR5cGUiOiJhZG1pbiIsImV4cCI6MTYwODA1Njk1MX0.lG36lgxZwutL9kCa_eIq66fiSw2o_A2v3t2AM1YpvOo",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:53595/api/companyservice/stockprice/company131/company",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "53595",
+									"path": [
+										"api",
+										"companyservice",
+										"stockprice",
+										"company131",
+										"company"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetAllStockPricesOfCompanyBetweenDates",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbjEiLCJqdGkiOiJmNDU4OTE2MC0zODczLTQ3ZTgtYWFmMi0wMjM4ZTU5YmQyZWIiLCJpYXQiOiIxNS0xMi0yMDIwIDE3OjI5OjExIiwiVXNlclR5cGUiOiJhZG1pbiIsImV4cCI6MTYwODA1Njk1MX0.lG36lgxZwutL9kCa_eIq66fiSw2o_A2v3t2AM1YpvOo",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:53595/api/companyservice/stockprice/stockPrices?name=company2&fromDate=2016-06-03T10:30:00&toDate=2016-06-03T10:55:00",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "53595",
+									"path": [
+										"api",
+										"companyservice",
+										"stockprice",
+										"stockPrices"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "company2"
+										},
+										{
+											"key": "fromDate",
+											"value": "2016-06-03T10:30:00"
+										},
+										{
+											"key": "toDate",
+											"value": "2016-06-03T10:55:00"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetAllStockPricesOfAllCompaniesBetweenDates",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbjEiLCJqdGkiOiJmNDU4OTE2MC0zODczLTQ3ZTgtYWFmMi0wMjM4ZTU5YmQyZWIiLCJpYXQiOiIxNS0xMi0yMDIwIDE3OjI5OjExIiwiVXNlclR5cGUiOiJhZG1pbiIsImV4cCI6MTYwODA1Njk1MX0.lG36lgxZwutL9kCa_eIq66fiSw2o_A2v3t2AM1YpvOo",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:53595/api/companyservice/stockprice/allStockPrices?fromDate=2016-06-03T10:30:00&toDate=2016-06-03T10:55:00",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "53595",
+									"path": [
+										"api",
+										"companyservice",
+										"stockprice",
+										"allStockPrices"
+									],
+									"query": [
+										{
+											"key": "fromDate",
+											"value": "2016-06-03T10:30:00"
+										},
+										{
+											"key": "toDate",
+											"value": "2016-06-03T10:55:00"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "SectorService",
+			"item": [
+				{
+					"name": "CompanyController",
+					"item": [
+						{
+							"name": "GetCompany",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbjEiLCJqdGkiOiJhYWE4NDJmZS0yZTM2LTQwOGItOTdlOS04ZmY2OGViNTFkYjUiLCJpYXQiOiIxNS0xMi0yMDIwIDE4OjM4OjM3IiwiVXNlclR5cGUiOiJhZG1pbiIsImV4cCI6MTYwODA2MTExN30.Hy8lZ9EF6B2lL9HYl0Dcxf8vNGwP3ZRPriAJ0b_Y95U",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:53595/api/sectorservice/company/1/company",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "53595",
+									"path": [
+										"api",
+										"sectorservice",
+										"company",
+										"1",
+										"company"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateCompany",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbjEiLCJqdGkiOiJhYWE4NDJmZS0yZTM2LTQwOGItOTdlOS04ZmY2OGViNTFkYjUiLCJpYXQiOiIxNS0xMi0yMDIwIDE4OjM4OjM3IiwiVXNlclR5cGUiOiJhZG1pbiIsImV4cCI6MTYwODA2MTExN30.Hy8lZ9EF6B2lL9HYl0Dcxf8vNGwP3ZRPriAJ0b_Y95U",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"companyID\": 5,\r\n        \"companyName\": \"company25\",\r\n        \"companyCode\": \"sg25\",\r\n        \"sector\": \"abc\",\r\n        \"turnover\": 10000\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:53595/api/sectorservice/company",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "53595",
+									"path": [
+										"api",
+										"sectorservice",
+										"company"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AddCompany",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbjEiLCJqdGkiOiJhYWE4NDJmZS0yZTM2LTQwOGItOTdlOS04ZmY2OGViNTFkYjUiLCJpYXQiOiIxNS0xMi0yMDIwIDE4OjM4OjM3IiwiVXNlclR5cGUiOiJhZG1pbiIsImV4cCI6MTYwODA2MTExN30.Hy8lZ9EF6B2lL9HYl0Dcxf8vNGwP3ZRPriAJ0b_Y95U",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"companyName\": \"company25\",\r\n        \"companyCode\": \"sg25\",\r\n        \"sector\": \"abc\",\r\n        \"turnover\": 10000\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:53595/api/sectorservice/company",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "53595",
+									"path": [
+										"api",
+										"sectorservice",
+										"company"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetSectorPrice",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbjEiLCJqdGkiOiJhYWE4NDJmZS0yZTM2LTQwOGItOTdlOS04ZmY2OGViNTFkYjUiLCJpYXQiOiIxNS0xMi0yMDIwIDE4OjM4OjM3IiwiVXNlclR5cGUiOiJhZG1pbiIsImV4cCI6MTYwODA2MTExN30.Hy8lZ9EF6B2lL9HYl0Dcxf8vNGwP3ZRPriAJ0b_Y95U",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:53595/api/sectorservice/company/xyz/sectorprice",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "53595",
+									"path": [
+										"api",
+										"sectorservice",
+										"company",
+										"xyz",
+										"sectorprice"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetCompaniesInSector",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbjEiLCJqdGkiOiJhYWE4NDJmZS0yZTM2LTQwOGItOTdlOS04ZmY2OGViNTFkYjUiLCJpYXQiOiIxNS0xMi0yMDIwIDE4OjM4OjM3IiwiVXNlclR5cGUiOiJhZG1pbiIsImV4cCI6MTYwODA2MTExN30.Hy8lZ9EF6B2lL9HYl0Dcxf8vNGwP3ZRPriAJ0b_Y95U",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:53595/api/sectorservice/company/abc/companies",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "53595",
+									"path": [
+										"api",
+										"sectorservice",
+										"company",
+										"abc",
+										"companies"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "SectorController",
+					"item": [
+						{
+							"name": "GetSectors",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbjEiLCJqdGkiOiJhYWE4NDJmZS0yZTM2LTQwOGItOTdlOS04ZmY2OGViNTFkYjUiLCJpYXQiOiIxNS0xMi0yMDIwIDE4OjM4OjM3IiwiVXNlclR5cGUiOiJhZG1pbiIsImV4cCI6MTYwODA2MTExN30.Hy8lZ9EF6B2lL9HYl0Dcxf8vNGwP3ZRPriAJ0b_Y95U",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:53595/api/sectorservice/sectors/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "53595",
+									"path": [
+										"api",
+										"sectorservice",
+										"sectors",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AddSector",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbjEiLCJqdGkiOiJhYWE4NDJmZS0yZTM2LTQwOGItOTdlOS04ZmY2OGViNTFkYjUiLCJpYXQiOiIxNS0xMi0yMDIwIDE4OjM4OjM3IiwiVXNlclR5cGUiOiJhZG1pbiIsImV4cCI6MTYwODA2MTExN30.Hy8lZ9EF6B2lL9HYl0Dcxf8vNGwP3ZRPriAJ0b_Y95U",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \r\n        \r\n        \"sectorName\": \"ris\",\r\n        \"brief\": \"12345\"\r\n    \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:53595/api/sectorservice/sectors/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "53595",
+									"path": [
+										"api",
+										"sectorservice",
+										"sectors",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "StockExchangeService",
+			"item": [
+				{
+					"name": "CompanyController",
+					"item": [
+						{
+							"name": "AddCompany",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbjEiLCJqdGkiOiJhYWE4NDJmZS0yZTM2LTQwOGItOTdlOS04ZmY2OGViNTFkYjUiLCJpYXQiOiIxNS0xMi0yMDIwIDE4OjM4OjM3IiwiVXNlclR5cGUiOiJhZG1pbiIsImV4cCI6MTYwODA2MTExN30.Hy8lZ9EF6B2lL9HYl0Dcxf8vNGwP3ZRPriAJ0b_Y95U",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \r\n        \"stockExchangeName\": \"xyz\",\r\n        \"brief\": \"egbrgbr\",\r\n        \"contactAddress\": \"tumkur\",\r\n        \"remarks\": \"ok\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:53595/api/stockexchangeservice/stockexchange",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "53595",
+									"path": [
+										"api",
+										"stockexchangeservice",
+										"stockexchange"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetCompaniesInStockExchange",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbjEiLCJqdGkiOiJhYWE4NDJmZS0yZTM2LTQwOGItOTdlOS04ZmY2OGViNTFkYjUiLCJpYXQiOiIxNS0xMi0yMDIwIDE4OjM4OjM3IiwiVXNlclR5cGUiOiJhZG1pbiIsImV4cCI6MTYwODA2MTExN30.Hy8lZ9EF6B2lL9HYl0Dcxf8vNGwP3ZRPriAJ0b_Y95U",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:53595/api/stockexchangeservice/stockexchange",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "53595",
+									"path": [
+										"api",
+										"stockexchangeservice",
+										"stockexchange"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "StockExchangeController",
+					"item": [
+						{
+							"name": "AddCompany",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbjEiLCJqdGkiOiJhYWE4NDJmZS0yZTM2LTQwOGItOTdlOS04ZmY2OGViNTFkYjUiLCJpYXQiOiIxNS0xMi0yMDIwIDE4OjM4OjM3IiwiVXNlclR5cGUiOiJhZG1pbiIsImV4cCI6MTYwODA2MTExN30.Hy8lZ9EF6B2lL9HYl0Dcxf8vNGwP3ZRPriAJ0b_Y95U",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"companyName\":\"company2\",\r\n    \"companyCode\":\"c2\",\r\n    \"StockExchangeName\":\"xyz\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:53595/api/stockexchangeservice/company",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "53595",
+									"path": [
+										"api",
+										"stockexchangeservice",
+										"company"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetCompaniesInStockExchange",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbjEiLCJqdGkiOiJhYWE4NDJmZS0yZTM2LTQwOGItOTdlOS04ZmY2OGViNTFkYjUiLCJpYXQiOiIxNS0xMi0yMDIwIDE4OjM4OjM3IiwiVXNlclR5cGUiOiJhZG1pbiIsImV4cCI6MTYwODA2MTExN30.Hy8lZ9EF6B2lL9HYl0Dcxf8vNGwP3ZRPriAJ0b_Y95U",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:53595/api/stockexchangeservice/company/xyz/companies",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "53595",
+									"path": [
+										"api",
+										"stockexchangeservice",
+										"company",
+										"xyz",
+										"companies"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

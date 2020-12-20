@@ -36,6 +36,22 @@ namespace Microservice5.Domain.Repository
             return RowsAffected > 0;
         }
 
+        public IEnumerable<Company> GetAllCompanies()
+        {
+            var query = from obj in context.Company
+                        orderby obj.CompanyName
+                        select obj;
+            return query.ToList();
+        }
+
+        public IEnumerable<Company> GetAllStockExchangesToWhichACompanyBelongs(string company)
+        {
+            var query = from obj in context.Company
+                        where obj.CompanyName == company
+                        select obj;
+            return query.ToList();
+        }
+
         public IEnumerable<Company> GetCompaniesInStockExchange(string StockExchangeName)
         {
             var query = from obj in context.Company

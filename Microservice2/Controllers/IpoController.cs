@@ -109,5 +109,25 @@ namespace Microservice2.Controllers
             }
         }
 
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(200)]
+        [HttpGet("{Id}")]
+        public IActionResult GetCompany(int Id)
+        {
+            try
+            {
+                var Obj = ipoService.GetIpo(Id);
+                if (Obj == null)
+                    return NotFound();
+
+                return Ok(Obj);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
     }
 }

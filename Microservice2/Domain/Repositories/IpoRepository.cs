@@ -41,9 +41,14 @@ namespace Microservice2.Domain.Repositories
         public IEnumerable<Ipo> GetAllIpos()
         {
             var query = from obj in context.Ipo
-                        orderby obj.CompanyName
+                        orderby obj.OpenDateTime
                         select obj;
             return query.ToList();
+        }
+
+        public Ipo GetIpo(int Id)
+        {
+            return context.Ipo.Find(Id);
         }
 
         public IEnumerable<Ipo> GetIposOfCompany(string Company)

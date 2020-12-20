@@ -41,6 +41,20 @@ namespace Microservice5.Controllers
             //return CreatedAtRoute("GetProductById", new { id = obj.ID });
             return StatusCode(201);
         }
+
+        [HttpGet]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [Route("{company}/stockexchanges")]
+        public IActionResult GetStockExchangesToWhichACompanyBelongsTo(string company)
+        {
+            if(company == "" || company == null)
+            {
+                return BadRequest("Company name is empty");
+            }
+            var Obj = service.GetAllStockExchangesToWhichACompanyBelongs(company);
+            return Ok(Obj);
+        }
         
 
     }

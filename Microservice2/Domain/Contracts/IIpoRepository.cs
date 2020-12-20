@@ -12,6 +12,8 @@ namespace Microservice2.Domain.Contracts
         public IEnumerable<Ipo> GetIposOfCompany(string Company);
         public bool AddIpo(Ipo ipo);
         public bool UpdateIpo(Ipo ipo);
-        public bool DeleteIpo(int Id);    
+        public bool DeleteIpo(int Id);
+
+        public Ipo GetIpo(int Id);
     }
 }

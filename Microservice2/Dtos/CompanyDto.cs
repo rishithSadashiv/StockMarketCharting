@@ -25,6 +25,7 @@ namespace Microservice2.Dtos
         public string Sector { get; set; }
         [Required(ErrorMessage = "Stock price is mandatory")]
         public int CurrentStockPrice { get; set; }
+
         [Required(ErrorMessage = "Activation is mandatory")]
         public bool Active { get; set; }
     }

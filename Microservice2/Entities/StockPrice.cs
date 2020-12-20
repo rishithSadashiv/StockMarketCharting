@@ -21,5 +21,7 @@ namespace Microservice2.Entities
         public int CurrentPrice { get; set; }
         public DateTime DateOfPrice { get; set; }
 
+        public string Sector { get; set; }
+
     }
 }

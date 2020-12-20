@@ -36,6 +36,13 @@ namespace Microservice2.Domain.Services
             return mapper.Map<IEnumerable<IpoDto>>(Obj);
         }
 
+        public IpoDto GetIpo(int Id)
+        {
+            var Obj = repository.GetIpo(Id);
+            var Dto = mapper.Map<IpoDto>(Obj);
+            return Dto;
+        }
+
         public IEnumerable<IpoDto> GetIposOfCompany(string Company)
         {
             var Obj = repository.GetIposOfCompany(Company);

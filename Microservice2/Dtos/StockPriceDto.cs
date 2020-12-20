@@ -21,5 +21,7 @@ namespace Microservice2.Dtos
         [Required(ErrorMessage = "Stock price is mandatory")]
         public int CurrentPrice { get; set; }
         public DateTime DateOfPrice { get; set; }
+        [Required]
+        public string Sector { get; set; }
     }
 }

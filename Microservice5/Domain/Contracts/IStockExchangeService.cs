@@ -17,6 +17,10 @@ namespace Microservice5.Domain.Contracts
 
         public IEnumerable<CompanyDto> GetCompaniesInStockExchange(string StockExchangeName);
 
+        public IEnumerable<CompanyDto> GetAllCompanies();
+
         bool UpdateCompanyDetailsFromMS2(Company2Dto dto);
+
+        public IEnumerable<CompanyDto> GetAllStockExchangesToWhichACompanyBelongs(string company);
     }
 }

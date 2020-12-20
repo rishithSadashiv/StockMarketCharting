@@ -42,5 +42,13 @@ namespace Microservice5.Controllers
         {
             return Ok(service.GetCompaniesInStockExchange(stockExchangeName));
         }
+
+
+        [HttpGet]
+        [ProducesResponseType(200)]
+        public IActionResult GetCompanies()
+        {
+            return Ok(service.GetAllCompanies());
+        }
     }
 }

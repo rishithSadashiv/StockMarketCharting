@@ -70,7 +70,7 @@ namespace Microservice2.Domain.Repositories
 
         public Company GetCompany(int Id)
         {
-            return context1.Company.Find(Id); ;
+            return context1.Company.Find(Id); 
         }
 
         public bool UpdateCompnany(Company company)
